@@ -1,0 +1,97 @@
+---
+import config from 'virtual:starlight/user-config';
+import Search from 'virtual:starlight/components/Search';
+import SocialIcons from 'virtual:starlight/components/SocialIcons';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+import { logos } from 'virtual:starlight/user-images';
+import { sections, sectionFor } from './sections';
+
+const current = sectionFor(Astro.url.pathname);
+const shouldRenderSearch =
+	config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+---
+
+<div class="ov-header">
+	<a href="/" class="ov-brand">
+		{logos.dark && <img src={logos.dark.src} alt="" width="28" height="28" />}
+		<span class="ov-brand-name" translate="no">OpenVireo</span>
+		<span class="ov-brand-tag">Developer</span>
+	</a>
+	<nav class="ov-nav sl-hidden lg:sl-flex" aria-label="Sections">
+		{
+			sections.map((s) => (
+				<a href={s.href} aria-current={current?.href === s.href ? 'page' : undefined}>
+					{s.label}
+				</a>
+			))
+		}
+	</nav>
+	<div class="ov-search print:hidden">{shouldRenderSearch && <Search />}</div>
+	<div class="sl-hidden md:sl-flex print:hidden ov-right">
+		<SocialIcons />
+		<ThemeSelect />
+	</div>
+</div>
+
+<style>
+	.ov-header {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		height: 100%;
+	}
+	.ov-brand {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
+		text-decoration: none;
+		color: var(--sl-color-white);
+		font-weight: 600;
+		font-size: 0.9375rem;
+		white-space: nowrap;
+	}
+	.ov-brand img {
+		width: 28px;
+		height: 28px;
+	}
+	.ov-brand-tag {
+		color: var(--sl-color-gray-2);
+		font-weight: 500;
+	}
+	.ov-nav {
+		gap: 0.25rem;
+		font-size: 0.875rem;
+	}
+	.ov-nav a {
+		color: var(--sl-color-gray-2);
+		text-decoration: none;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.5rem;
+		white-space: nowrap;
+	}
+	.ov-nav a:hover {
+		color: var(--sl-color-white);
+	}
+	.ov-nav a[aria-current='page'] {
+		color: var(--sl-color-white);
+		background: var(--ov-surface-2);
+	}
+	.ov-search {
+		flex: 1 1 auto;
+		display: flex;
+		justify-content: flex-end;
+		min-width: 0;
+	}
+	.ov-right {
+		align-items: center;
+		gap: 1rem;
+	}
+	.ov-right :global(.social-icons) {
+		gap: 1rem;
+	}
+	@media (max-width: 50rem) {
+		.ov-brand-tag {
+			display: none;
+		}
+	}
+</style>

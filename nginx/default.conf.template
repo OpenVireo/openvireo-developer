@@ -1,0 +1,35 @@
+# The nginx image runs envsubst on this at start (/etc/nginx/templates), filling in ${HSTS}.
+server {
+  listen 8080;
+  root /usr/share/nginx/html;
+  error_page 404 /404.html;
+
+  # Redirects (a directory without its trailing slash) stay relative, so they don't name the
+  # container's port or http when TLS is terminated in front
+  absolute_redirect off;
+
+  # Pages as Markdown (<path>.md, llms.txt) and the OpenAPI description
+  types {
+    text/markdown md;
+    application/yaml yaml;
+  }
+  include /etc/nginx/mime.types;
+  charset utf-8;
+  charset_types text/markdown application/yaml text/plain;
+
+  gzip on;
+  gzip_types text/css application/javascript application/json image/svg+xml application/xml text/xml text/markdown application/yaml text/plain;
+
+  # Hashed build assets never change
+  location /_astro/ {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+    add_header Strict-Transport-Security "${HSTS}" always;
+    add_header X-Content-Type-Options "nosniff" always;
+  }
+
+  # Strict-Transport-Security; nginx sends no header when HSTS is empty
+  add_header Strict-Transport-Security "${HSTS}" always;
+  add_header X-Content-Type-Options "nosniff" always;
+  add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+  add_header Content-Security-Policy "frame-ancestors 'none'" always;
+}

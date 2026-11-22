@@ -1,0 +1,18 @@
+---
+title: Guides
+description: Start from a task. Each guide links into the SDK, CLI, API and bindings docs.
+tableOfContents: false
+sidebar:
+  label: All guides
+---
+
+import GuideCard from '../../../components/GuideCard.astro';
+import { guides } from '../../../data/guides';
+
+<div class="ov-guide-grid not-content">
+	{guides.map((g) => <GuideCard {...g} />)}
+</div>
+
+<style>{`
+	.ov-guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1rem; margin-top: 2rem; }
+`}</style>

@@ -1,0 +1,24 @@
+# DigitalOcean App Platform spec for developer.openvireo.com. App Platform builds the Dockerfile and runs its
+# nginx stage as a service (a service rather than a static site so it can send response headers such as HSTS).
+# Apply with: ./deploy-do.sh (or doctl apps update <app-id> --spec .do/app.yaml)
+name: openvireo-developer
+domains:
+- domain: developer.openvireo.com
+  type: PRIMARY
+services:
+- name: openvireo-developer
+  dockerfile_path: Dockerfile
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  health_check:
+    http_path: /
+  github:
+    repo: openvireo/openvireo-developer
+    branch: develop
+    deploy_on_push: true
+  envs:
+  # Same steps as openvireo.com: max-age=300 first, then raise it
+  - key: HSTS
+    value: max-age=300
+    scope: RUN_TIME

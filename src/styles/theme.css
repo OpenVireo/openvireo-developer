@@ -1,0 +1,216 @@
+/* OpenVireo Developer theme: dark first, one green accent (the brand's #3c7d20). Tokens from the mockup. */
+
+:root {
+	--sl-font: 'Inter Variable', system-ui, sans-serif;
+	--sl-font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+	--sl-content-width: 48rem;
+	--sl-nav-height: 4rem;
+	--sl-text-h1: 2.75rem;
+	--sl-text-h2: 1.5rem;
+	--sl-text-h3: 1.1875rem;
+
+	/* Dark (default) */
+	--ov-ground: #0a0c0b;
+	--ov-surface-0: #0d100e;
+	--ov-surface-1: #111513;
+	--ov-surface-2: #151a17;
+	--ov-border: #222925;
+	--ov-border-soft: #1d2420;
+	--ov-border-strong: #2c3530;
+	--ov-accent: #3c7d20;
+	--ov-accent-text: #86c46e;
+	--ov-accent-text-hover: #a6d992;
+	--ov-accent-tint: #1d3315;
+	--ov-on-accent: #ffffff;
+
+	--sl-color-white: #eef2ef;
+	--sl-color-gray-1: #c9d1cb;
+	--sl-color-gray-2: #a3ada6;
+	--sl-color-gray-3: #7d877f;
+	--sl-color-gray-4: #4a544d;
+	--sl-color-gray-5: #2c3530;
+	--sl-color-gray-6: #151a17;
+	--sl-color-black: #0a0c0b;
+	--sl-color-accent-low: #1d3315;
+	--sl-color-accent: #3c7d20;
+	--sl-color-accent-high: #a6d992;
+	--sl-color-text-accent: var(--ov-accent-text);
+	--sl-color-bg-nav: rgba(10, 12, 11, 0.92);
+	--sl-color-bg-sidebar: var(--ov-ground);
+	--sl-color-bg-inline-code: var(--ov-surface-2);
+	--sl-color-hairline: var(--ov-border-soft);
+	--sl-color-hairline-light: var(--ov-border);
+	--sl-color-hairline-shade: var(--ov-ground);
+}
+
+:root[data-theme='light'] {
+	--ov-ground: #ffffff;
+	--ov-surface-0: #f7f9f7;
+	--ov-surface-1: #f3f6f3;
+	--ov-surface-2: #e9eee9;
+	--ov-border: #dfe5e0;
+	--ov-border-soft: #e7ece8;
+	--ov-border-strong: #c9d2cb;
+	--ov-accent: #3c7d20;
+	--ov-accent-text: #2f6a18;
+	--ov-accent-text-hover: #244f13;
+	--ov-accent-tint: #e4f0de;
+	--ov-on-accent: #ffffff;
+
+	--sl-color-white: #0f1411;
+	--sl-color-gray-1: #252c27;
+	--sl-color-gray-2: #4b554e;
+	--sl-color-gray-3: #66706a;
+	--sl-color-gray-4: #9aa39c;
+	--sl-color-gray-5: #c9d2cb;
+	--sl-color-gray-6: #e9eee9;
+	--sl-color-gray-7: #f3f6f3;
+	--sl-color-black: #ffffff;
+	--sl-color-accent-low: #e4f0de;
+	--sl-color-accent: #3c7d20;
+	--sl-color-accent-high: #244f13;
+	--sl-color-text-accent: var(--ov-accent-text);
+	--sl-color-bg-nav: rgba(255, 255, 255, 0.92);
+	--sl-color-bg-sidebar: var(--ov-ground);
+	--sl-color-bg-inline-code: var(--ov-surface-1);
+	--sl-color-hairline: var(--ov-border-soft);
+	--sl-color-hairline-light: var(--ov-border);
+	--sl-color-hairline-shade: var(--ov-border);
+}
+
+body {
+	background: var(--ov-ground);
+}
+
+header.header {
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid var(--ov-border-soft);
+}
+
+/* Links in content */
+.sl-markdown-content a:not(:where(.not-content *)) {
+	color: var(--ov-accent-text);
+	text-decoration: none;
+}
+.sl-markdown-content a:not(:where(.not-content *)):hover {
+	color: var(--ov-accent-text-hover);
+	text-decoration: underline;
+}
+
+/* Headings */
+.sl-markdown-content :is(h2, h3, h4):not(:where(.not-content *)) {
+	letter-spacing: -0.015em;
+	font-weight: 600;
+	color: var(--sl-color-white);
+}
+.sl-markdown-content h2:not(:where(.not-content *)) {
+	margin-top: 2.5rem;
+}
+
+/* Inline code */
+.sl-markdown-content :not(pre) > code:not(:where(.not-content *)) {
+	border: 1px solid var(--ov-border);
+	border-radius: 0.3125rem;
+	padding: 0.0625rem 0.375rem;
+	font-size: 0.85em;
+}
+
+/* Tables */
+.sl-markdown-content table:not(:where(.not-content *)) {
+	display: block;
+	overflow-x: auto;
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid var(--ov-border);
+	border-radius: 0.75rem;
+	font-size: 0.875rem;
+}
+.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
+	border-bottom: 1px solid var(--ov-border-soft);
+	padding: 0.625rem 0.875rem;
+}
+.sl-markdown-content th:not(:where(.not-content *)) {
+	background: var(--ov-surface-1);
+	color: var(--sl-color-white);
+	font-weight: 600;
+}
+.sl-markdown-content tr:last-child td:not(:where(.not-content *)) {
+	border-bottom: 0;
+}
+
+/* Sidebar */
+nav.sidebar .sidebar-content {
+	--sl-sidebar-item-padding-inline: 0.75rem;
+}
+.sidebar-content a {
+	border-radius: 0.5rem;
+	color: var(--sl-color-gray-2);
+	font-size: 0.875rem;
+}
+.sidebar-content a:hover {
+	color: var(--sl-color-white);
+}
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover {
+	background: var(--ov-surface-2);
+	color: var(--sl-color-white);
+	font-weight: 500;
+}
+.sidebar-content .group-label .large {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-2);
+}
+
+/* Right-hand table of contents */
+starlight-toc a[aria-current='true'],
+starlight-toc a[aria-current='true']:hover {
+	color: var(--ov-accent-text);
+}
+
+/* Asides as the mockup's callouts */
+.starlight-aside {
+	border-radius: 0.75rem;
+	border: 1px solid var(--ov-border);
+	border-inline-start-width: 1px;
+}
+.starlight-aside--tip,
+.starlight-aside--note {
+	background: var(--ov-accent-tint);
+	border-color: color-mix(in srgb, var(--ov-accent) 45%, transparent);
+	--sl-color-asides-text-accent: var(--ov-accent-text);
+}
+
+/* Search button */
+site-search button[data-open-modal] {
+	border-radius: 0.625rem;
+	background: var(--ov-surface-1);
+	border-color: var(--ov-border);
+	min-width: 16rem;
+}
+
+/* Pagination cards */
+.pagination-links a {
+	border-radius: 0.75rem;
+	border-color: var(--ov-border);
+	box-shadow: none;
+}
+
+/* Starlight cards */
+.card {
+	border-radius: 1rem;
+	border-color: var(--ov-border);
+	background: var(--ov-surface-1);
+}
+.sl-link-card {
+	border-radius: 0.875rem;
+	border-color: var(--ov-border);
+	background: var(--ov-surface-0);
+	box-shadow: none;
+}
+.sl-link-card:hover {
+	border-color: var(--ov-border-strong);
+	background: var(--ov-surface-1);
+}

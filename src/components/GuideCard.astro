@@ -1,0 +1,50 @@
+---
+interface Props {
+	tag: string;
+	title: string;
+	summary: string;
+	href: string;
+}
+const { tag, title, summary, href } = Astro.props;
+---
+
+<a class="ov-guide not-content" href={href}>
+	<span class="ov-guide-tag">{tag}</span>
+	<span class="ov-guide-title">{title}</span>
+	<span class="ov-guide-summary">{summary}</span>
+</a>
+
+<style>
+	.ov-guide {
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
+		border: 1px solid var(--ov-border);
+		border-radius: 0.875rem;
+		padding: 1.375rem;
+		background: var(--ov-surface-0);
+		color: var(--sl-color-white);
+		text-decoration: none;
+		transition: border-color 0.15s, background 0.15s;
+	}
+	.ov-guide:hover {
+		border-color: var(--ov-border-strong);
+		background: var(--ov-surface-1);
+	}
+	.ov-guide-tag {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--sl-color-gray-2);
+	}
+	.ov-guide-title {
+		font-size: 1.0625rem;
+		font-weight: 600;
+	}
+	.ov-guide-summary {
+		font-size: 0.875rem;
+		line-height: 1.6;
+		color: var(--sl-color-gray-2);
+	}
+</style>

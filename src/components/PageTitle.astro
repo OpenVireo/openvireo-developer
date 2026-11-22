@@ -1,0 +1,102 @@
+---
+const PAGE_TITLE_ID = '_top'; // Starlight's id for the page title (the skip link and TOC point at it)
+import { sectionFor } from './sections';
+
+const { entry } = Astro.locals.starlightRoute;
+const section = sectionFor(Astro.url.pathname);
+const isLanding = section && Astro.url.pathname === section.href;
+// Every docs page is also served as Markdown at <path>.md (src/pages/[...slug].md.ts)
+const markdownUrl = `${Astro.url.pathname.replace(/\/$/, '')}.md`;
+// The home page draws its own hero title (with id _top)
+const isHome = Astro.url.pathname === '/';
+---
+
+{!isHome && <>
+<div class="ov-title-bar">
+	{
+		section && (
+			<nav aria-label="Breadcrumb" class="ov-crumbs">
+				{isLanding ? <span>{section.label}</span> : <a href={section.href}>{section.label}</a>}
+			</nav>
+		)
+	}
+	<button type="button" class="ov-copy-md" data-md={markdownUrl}>
+		<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
+		<span>Copy as Markdown</span>
+	</button>
+</div>
+<h1 id={PAGE_TITLE_ID}>{entry.data.title}</h1>
+{entry.data.description && <p class="ov-lead">{entry.data.description}</p>}
+</>}
+
+<script>
+	for (const button of document.querySelectorAll<HTMLButtonElement>('.ov-copy-md')) {
+		const label = button.querySelector('span')!;
+		button.addEventListener('click', async () => {
+			try {
+				const res = await fetch(button.dataset.md!);
+				if (!res.ok) throw new Error(String(res.status));
+				await navigator.clipboard.writeText(await res.text());
+				label.textContent = 'Copied';
+			} catch {
+				label.textContent = 'Couldn’t copy';
+			}
+			setTimeout(() => (label.textContent = 'Copy as Markdown'), 2000);
+		});
+	}
+</script>
+
+<style>
+	.ov-title-bar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.75rem;
+		margin-top: 0.5rem;
+	}
+	.ov-crumbs {
+		font-size: 0.8125rem;
+		color: var(--sl-color-gray-2);
+	}
+	.ov-crumbs a {
+		color: var(--sl-color-gray-2);
+		text-decoration: none;
+	}
+	.ov-crumbs a:hover {
+		color: var(--sl-color-white);
+	}
+	.ov-copy-md {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-inline-start: auto;
+		font: inherit;
+		font-size: 0.8125rem;
+		color: var(--sl-color-gray-1);
+		background: var(--ov-surface-1);
+		border: 1px solid var(--ov-border);
+		border-radius: 0.5rem;
+		padding: 0.4375rem 0.75rem;
+		min-height: 2.25rem;
+		cursor: pointer;
+	}
+	.ov-copy-md:hover {
+		color: var(--sl-color-white);
+		border-color: var(--ov-border-strong);
+	}
+	h1 {
+		margin-top: 0.75rem;
+		font-size: var(--sl-text-h1);
+		line-height: 1.1;
+		letter-spacing: -0.03em;
+		font-weight: 700;
+		color: var(--sl-color-white);
+	}
+	.ov-lead {
+		margin-top: 0.75rem;
+		font-size: 1.125rem;
+		line-height: 1.65;
+		color: var(--sl-color-gray-2);
+	}
+</style>

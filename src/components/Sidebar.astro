@@ -1,0 +1,63 @@
+---
+import MobileMenuFooter from 'virtual:starlight/components/MobileMenuFooter';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
+import { sections, sectionFor } from './sections';
+
+// Show only the current section's group, flattened, so each product has its own sidebar.
+const { sidebar } = Astro.locals.starlightRoute;
+const current = sectionFor(Astro.url.pathname);
+const group = sidebar.find((e) => e.type === 'group' && e.label === current?.group);
+const entries = group && group.type === 'group' ? group.entries : sidebar;
+---
+
+<nav class="ov-sections lg:sl-hidden" aria-label="Sections">
+	{
+		sections.map((s) => (
+			<a href={s.href} aria-current={current?.href === s.href ? 'page' : undefined}>
+				{s.label}
+			</a>
+		))
+	}
+</nav>
+{current && <p class="ov-section-label">{current.label}</p>}
+<SidebarPersister><SidebarSublist sublist={entries} /></SidebarPersister>
+
+<div class="md:sl-hidden"><MobileMenuFooter /></div>
+
+<style>
+	.ov-sections {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.375rem;
+		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+		border-bottom: 1px solid var(--ov-border);
+	}
+	/* The header shows these links from 72rem up (lg:sl-hidden loses to the rule above) */
+	@media (min-width: 72rem) {
+		.ov-sections {
+			display: none;
+		}
+	}
+	.ov-sections a {
+		font-size: 0.875rem;
+		color: var(--sl-color-gray-2);
+		text-decoration: none;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.5rem;
+		border: 1px solid var(--ov-border);
+	}
+	.ov-sections a[aria-current='page'] {
+		color: var(--sl-color-white);
+		background: var(--ov-surface-2);
+	}
+	.ov-section-label {
+		margin: 0 0 0.5rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--sl-color-gray-2);
+	}
+</style>

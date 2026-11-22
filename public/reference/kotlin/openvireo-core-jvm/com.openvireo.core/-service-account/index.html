@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ServiceAccount</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    openvireo-core-jvm
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+b56056f2e6c8        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":core-jvm/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":core-jvm/main"
+                                       data-filter=":core-jvm/main"/>
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+                <a class="navigation-controls--btn navigation-controls--btn_homepage" id="homepage-link"
+                   href="https://developer.openvireo.com/bindings/kotlin-java/"></a>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    openvireo-core-jvm
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="openvireo-core-jvm::com.openvireo.core/ServiceAccount///PointingToDeclaration//-662999309">
+  <div class="breadcrumbs"><a href="../../../index.html">openvireo-core-jvm</a><span class="delimiter">/</span><a href="../index.html">com.openvireo.core</a><span class="delimiter">/</span><span class="current">ServiceAccount</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Service</span><wbr></wbr><span><span>Account</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">ServiceAccount</a> : <a href="../-disposable/index.html">Disposable</a>, <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a>, <a href="../-service-account-interface/index.html">ServiceAccountInterface</a></div><p class="paragraph">A service-account session (SPEC §9, <code class="lang-kotlin">ov_core::api::ServiceAccount</code>).</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="221218503%2FClasslikes%2F-662999309" anchor-label="Companion" id="221218503%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="221218503%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-1375767126%2FProperties%2F-662999309" anchor-label="uniffiIsDestroyed" id="-1375767126%2FProperties%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="uniffi-is-destroyed.html"><span>uniffi</span><wbr></wbr><span>Is</span><wbr></wbr><span><span>Destroyed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1375767126%2FProperties%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="uniffi-is-destroyed.html">uniffiIsDestroyed</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Whether the current object has been destroyed and its reference is gone in the Rust side.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1636476920%2FFunctions%2F-662999309" anchor-label="close" id="-1636476920%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="close.html"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1636476920%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-synchronized/index.html"><span class="token annotation builtin">Synchronized</span></a></div></div><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="69908358%2FFunctions%2F-662999309" anchor-label="destroy" id="69908358%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="destroy.html"><span><span>destroy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="69908358%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="destroy.html"><span class="token function">destroy</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1224908159%2FFunctions%2F-662999309" anchor-label="endSession" id="1224908159%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="end-session.html"><span>end</span><wbr></wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1224908159%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="end-session.html"><span class="token function">endSession</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Ends the session.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-725668850%2FFunctions%2F-662999309" anchor-label="inject" id="-725668850%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="inject.html"><span><span>inject</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-725668850%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="inject.html"><span class="token function">inject</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">template<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-injected/index.html">Injected</a></div><div class="brief "><p class="paragraph">Fills a template's references.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1798930367%2FFunctions%2F-662999309" anchor-label="issuer" id="-1798930367%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="issuer.html"><span><span>issuer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1798930367%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="issuer.html"><span class="token function">issuer</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The server's issuer (contract-v1.6).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="366283195%2FFunctions%2F-662999309" anchor-label="openVault" id="366283195%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="open-vault.html"><span>open</span><wbr></wbr><span><span>Vault</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="366283195%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="open-vault.html"><span class="token function">openVault</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">idOrName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">refresh<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-vault/index.html">Vault</a></div><div class="brief "><p class="paragraph">Opens a vault.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="870266130%2FFunctions%2F-662999309" anchor-label="principal" id="870266130%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="principal.html"><span><span>principal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="870266130%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="principal.html"><span class="token function">principal</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The service account's principal.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2019175516%2FFunctions%2F-662999309" anchor-label="pull" id="-2019175516%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="pull.html"><span><span>pull</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2019175516%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="pull.html"><span class="token function">pull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">idOrName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-vault/index.html">Vault</a></div><div class="brief "><p class="paragraph">Pulls a vault's latest version.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1731107571%2FFunctions%2F-662999309" anchor-label="read" id="1731107571%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="read.html"><span><span>read</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1731107571%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="read.html"><span class="token function">read</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">reference<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Reads one field by reference.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="487388209%2FFunctions%2F-662999309" anchor-label="saId" id="487388209%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sa-id.html"><span>sa</span><wbr></wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="487388209%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="sa-id.html"><span class="token function">saId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The service account's id.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1130398293%2FFunctions%2F-662999309" anchor-label="serverConfig" id="1130398293%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="server-config.html"><span>server</span><wbr></wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1130398293%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="server-config.html"><span class="token function">serverConfig</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-server-config/index.html">ServerConfig</a></div><div class="brief "><p class="paragraph">The server this service account signed in to (contract-v1.6).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1080629533%2FFunctions%2F-662999309" anchor-label="syncVaultKdbx" id="1080629533%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sync-vault-kdbx.html"><span>sync</span><wbr></wbr><span>Vault</span><wbr></wbr><span><span>Kdbx</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1080629533%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="sync-vault-kdbx.html"><span class="token function">syncVaultKdbx</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">vaultId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">kdbx<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">base<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">options<span class="token operator">: </span><a href="../-sync-options/index.html">SyncOptions</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-vault-kdbx-sync-result/index.html">VaultKdbxSyncResult</a></div><div class="brief "><p class="paragraph">Syncs a granted vault held as <code class="lang-kotlin">.kdbx</code> bytes (contract-v1.8).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2083368381%2FFunctions%2F-662999309" anchor-label="vault" id="2083368381%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="vault.html"><span><span>vault</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2083368381%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="vault.html"><span class="token function">vault</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">idOrName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-sa-vault/index.html">SaVault</a></div><div class="brief "><p class="paragraph">One vault by id or name.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1175415250%2FFunctions%2F-662999309" anchor-label="vaultKdbxCredentials" id="-1175415250%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="vault-kdbx-credentials.html"><span>vault</span><wbr></wbr><span>Kdbx</span><wbr></wbr><span><span>Credentials</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1175415250%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="vault-kdbx-credentials.html"><span class="token function">vaultKdbxCredentials</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">vaultId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-kdbx-credentials/index.html">KdbxCredentials</a></div><div class="brief "><p class="paragraph">The credentials a granted vault's <code class="lang-kotlin">.kdbx</code> is under (contract-v1.8). Wipe them.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="365835381%2FFunctions%2F-662999309" anchor-label="vaults" id="365835381%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="vaults.html"><span><span>vaults</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="365835381%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="vaults.html"><span class="token function">vaults</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">refresh<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-sa-vault/index.html">SaVault</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The vaults it can read.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1672681081%2FFunctions%2F-662999309" anchor-label="write" id="-1672681081%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="write.html"><span><span>write</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1672681081%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="write.html"><span class="token function">write</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">reference<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">create<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Writes one field by reference.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>OpenVireo core, <a href="https://github.com/openvireo/openvireo-core/tree/b56056f2e6c81d984c72ef8f3aae3f0a42fc8c43">b56056f2e6c8</a> &middot; <a href="https://developer.openvireo.com/bindings/kotlin-java/">Kotlin and Java guide</a> &middot; <a href="/reference/java/">Java reference</a> &middot; MIT OR Apache-2.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

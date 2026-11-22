@@ -1,0 +1,99 @@
+# Doxygen settings for the C++ API reference (developer.openvireo.com/reference/cpp/).
+#
+# Not run directly: scripts/apidocs/cpp.mjs writes a Doxyfile that @INCLUDEs this one and adds the
+# paths of the build (INPUT, OUTPUT_DIRECTORY, STRIP_FROM_PATH, INCLUDE_PATH, INPUT_FILTER,
+# USE_MDFILE_AS_MAINPAGE, PROJECT_NUMBER). Everything else not listed here is Doxygen's default.
+
+PROJECT_NAME           = "OpenVireo core for C++"
+PROJECT_BRIEF          = "ov-ffi-cpp: the C++17 binding of openvireo-core"
+CREATE_SUBDIRS         = NO
+FULL_PATH_NAMES        = YES
+JAVADOC_AUTOBRIEF      = YES
+QT_AUTOBRIEF           = YES
+MARKDOWN_SUPPORT       = YES
+MARKDOWN_ID_STYLE      = GITHUB
+TOC_INCLUDE_HEADINGS   = 3
+AUTOLINK_SUPPORT       = YES
+BUILTIN_STL_SUPPORT    = YES
+INLINE_SIMPLE_STRUCTS  = NO
+TYPEDEF_HIDES_STRUCT   = NO
+
+# What to document: the public headers only (the inputs are passed by cpp.mjs).
+FILE_PATTERNS          = *.h *.md
+RECURSIVE              = NO
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = NO
+EXTRACT_ANON_NSPACES   = NO
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = NO
+HIDE_FRIEND_COMPOUNDS  = YES
+HIDE_IN_BODY_DOCS      = YES
+INTERNAL_DOCS          = NO
+SHOW_INCLUDE_FILES     = YES
+SORT_MEMBER_DOCS       = NO
+SORT_BRIEF_DOCS        = NO
+SHOW_USED_FILES        = NO
+SHOW_FILES             = YES
+SHOW_NAMESPACES        = YES
+# The cxx runtime (namespace rust, inlined into the generated header) and cxx's plumbing are
+# cxx's API, documented at cxx.rs, not ours.
+EXCLUDE_SYMBOLS        = rust rust::* cxxbridge1 detail IsRelocatable CXXBRIDGE1_* CXX_*
+
+# The generated header guards each item with #ifndef CXXBRIDGE1_..., and CXX_DEFAULT_VALUE gives
+# record fields their defaults from C++14 on.
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = NO
+SEARCH_INCLUDES        = YES
+PREDEFINED             = __cplusplus=201703L
+SKIP_FUNCTION_MACROS   = YES
+
+# Source
+SOURCE_BROWSER         = NO
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = YES
+VERBATIM_HEADERS       = YES
+REFERENCED_BY_RELATION = NO
+REFERENCES_RELATION    = NO
+ALPHABETICAL_INDEX     = YES
+
+# Output: HTML only, with the client-side search (works on static hosting under a subpath).
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_COLORSTYLE        = TOGGLE
+HTML_DYNAMIC_SECTIONS  = NO
+HTML_CODE_FOLDING      = YES
+HTML_COPY_CLIPBOARD    = YES
+HTML_INDEX_NUM_ENTRIES = 1
+GENERATE_TREEVIEW      = YES
+FULL_SIDEBAR           = NO
+DISABLE_INDEX          = NO
+ENUM_VALUES_PER_LINE   = 1
+TIMESTAMP              = NO
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+EXTERNAL_SEARCH        = NO
+GENERATE_LATEX         = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+GENERATE_XML           = NO
+GENERATE_DOCBOOK       = NO
+GENERATE_AUTOGEN_DEF   = NO
+GENERATE_PERLMOD       = NO
+GENERATE_TAGFILE       =
+HAVE_DOT               = NO
+CLASS_GRAPH            = NO
+COLLABORATION_GRAPH    = NO
+INCLUDE_GRAPH          = NO
+INCLUDED_BY_GRAPH      = NO
+
+# Messages
+QUIET                  = YES
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = NO
+WARN_AS_ERROR          = NO

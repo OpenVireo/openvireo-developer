@@ -6,6 +6,7 @@ export const sections = [
 	{ label: 'API', href: '/api/', group: 'API' },
 	{ label: 'Self-hosting', href: '/self-hosting/', group: 'Self-hosting' },
 	{ label: 'Bindings', href: '/bindings/', group: 'Bindings' },
+	{ label: 'Reference', href: '/reference/', group: 'Reference' },
 ] as const;
 
 export type Section = (typeof sections)[number];

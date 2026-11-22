@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>JOvClient</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    openvireo-core-jvm
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+b56056f2e6c8        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":core-jvm/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":core-jvm/main"
+                                       data-filter=":core-jvm/main"/>
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+                <a class="navigation-controls--btn navigation-controls--btn_homepage" id="homepage-link"
+                   href="https://developer.openvireo.com/bindings/kotlin-java/"></a>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    openvireo-core-jvm
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="openvireo-core-jvm::com.openvireo.core.java/JOvClient///PointingToDeclaration//-662999309">
+  <div class="breadcrumbs"><a href="../../../index.html">openvireo-core-jvm</a><span class="delimiter">/</span><a href="../index.html">com.openvireo.core.java</a><span class="delimiter">/</span><span class="current">JOvClient</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>JOv</span><wbr></wbr><span><span>Client</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">JOvClient</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../../com.openvireo.core/-ov-client/index.html">OvClient</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><p class="paragraph">The Java facade of <a href="../../com.openvireo.core/-ov-client/index.html">com.openvireo.core.OvClient</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JOvClient/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="unwrap.html">unwrap</a> gives the generated object; <a href="close.html">close</a> frees it.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="-1295562404%2FConstructors%2F-662999309" anchor-label="JOvClient" id="-1295562404%2FConstructors%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-ov-client.html"><span>JOv</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1295562404%2FConstructors%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../../com.openvireo.core/-ov-client/index.html">OvClient</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../../com.openvireo.core/-ov-client/index.html">OvClient</a><span class="token punctuation">, </span></span><span class="parameter ">executor<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executor.html">Executor</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Wraps <span data-unresolved-link="com.openvireo.core.java/JOvClient//#com.openvireo.core.OvClient#java.util.concurrent.Executor/PointingToCallableParameters(0)/">inner</span>; its futures run on <span data-unresolved-link="com.openvireo.core.java/JOvClient//#com.openvireo.core.OvClient#java.util.concurrent.Executor/PointingToCallableParameters(1)/">executor</span>.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="../../com.openvireo.core/-client-config/index.html">ClientConfig</a><span class="token punctuation">, </span></span><span class="parameter ">host<span class="token operator">: </span><a href="../../com.openvireo.core/-host/index.html">Host</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client/index.html">com.openvireo.core.OvClient</a>'s constructor; futures run on the default scope.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="../../com.openvireo.core/-client-config/index.html">ClientConfig</a><span class="token punctuation">, </span></span><span class="parameter ">host<span class="token operator">: </span><a href="../../com.openvireo.core/-host/index.html">Host</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client/index.html">com.openvireo.core.OvClient</a>'s constructor; futures run on <span data-unresolved-link="com.openvireo.core.java/JOvClient//#com.openvireo.core.ClientConfig#com.openvireo.core.Host#kotlinx.coroutines.CoroutineScope/PointingToCallableParameters(2)/">scope</span>.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="../../com.openvireo.core/-client-config/index.html">ClientConfig</a><span class="token punctuation">, </span></span><span class="parameter ">host<span class="token operator">: </span><a href="../../com.openvireo.core/-host/index.html">Host</a><span class="token punctuation">, </span></span><span class="parameter ">executor<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executor.html">Executor</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client/index.html">com.openvireo.core.OvClient</a>'s constructor; futures run on <span data-unresolved-link="com.openvireo.core.java/JOvClient//#com.openvireo.core.ClientConfig#com.openvireo.core.Host#java.util.concurrent.Executor/PointingToCallableParameters(2)/">executor</span>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1619873262%2FFunctions%2F-662999309" anchor-label="close" id="-1619873262%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="close.html"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1619873262%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Frees the generated object's native handle.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="426496782%2FFunctions%2F-662999309" anchor-label="config" id="426496782%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="config.html"><span><span>config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="426496782%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="config.html"><span class="token function">config</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.openvireo.core/-client-config/index.html">ClientConfig</a></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/config.html">com.openvireo.core.OvClientInterface.config</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1296834305%2FFunctions%2F-662999309" anchor-label="connect" id="1296834305%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connect.html"><span><span>connect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1296834305%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="connect.html"><span class="token function">connect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../-j-account/index.html">JAccount</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/connect.html">com.openvireo.core.OvClientInterface.connect</a> With a fresh <a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a>: cancel the future to cancel the call.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="connect.html"><span class="token function">connect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../-j-account/index.html">JAccount</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/connect.html">com.openvireo.core.OvClientInterface.connect</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1789749977%2FFunctions%2F-662999309" anchor-label="createLocal" id="-1789749977%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-local.html"><span>create</span><wbr></wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1789749977%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-local.html"><span class="token function">createLocal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">credentials<span class="token operator">: </span><a href="../../com.openvireo.core/-kdbx-credentials/index.html">KdbxCredentials</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../-j-vault/index.html">JVault</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/create-local.html">com.openvireo.core.OvClientInterface.createLocal</a> With a fresh <a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a>: cancel the future to cancel the call.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-local.html"><span class="token function">createLocal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">credentials<span class="token operator">: </span><a href="../../com.openvireo.core/-kdbx-credentials/index.html">KdbxCredentials</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../-j-vault/index.html">JVault</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/create-local.html">com.openvireo.core.OvClientInterface.createLocal</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1305334663%2FFunctions%2F-662999309" anchor-label="discover" id="1305334663%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="discover.html"><span><span>discover</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1305334663%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="discover.html"><span class="token function">discover</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-server-config/index.html">ServerConfig</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/discover.html">com.openvireo.core.OvClientInterface.discover</a> With a fresh <a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a>: cancel the future to cancel the call.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="discover.html"><span class="token function">discover</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-server-config/index.html">ServerConfig</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/discover.html">com.openvireo.core.OvClientInterface.discover</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-558305326%2FFunctions%2F-662999309" anchor-label="forgetRemembered" id="-558305326%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="forget-remembered.html"><span>forget</span><wbr></wbr><span><span>Remembered</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-558305326%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="forget-remembered.html"><span class="token function">forgetRemembered</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Void.html">Void</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/forget-remembered.html">com.openvireo.core.OvClientInterface.forgetRemembered</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="550462342%2FFunctions%2F-662999309" anchor-label="hasPendingEdits" id="550462342%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-pending-edits.html"><span>has</span><wbr></wbr><span>Pending</span><wbr></wbr><span><span>Edits</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="550462342%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="has-pending-edits.html"><span class="token function">hasPendingEdits</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/has-pending-edits.html">com.openvireo.core.OvClientInterface.hasPendingEdits</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="646699373%2FFunctions%2F-662999309" anchor-label="markRememberedChecked" id="646699373%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mark-remembered-checked.html"><span>mark</span><wbr></wbr><span>Remembered</span><wbr></wbr><span><span>Checked</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="646699373%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="mark-remembered-checked.html"><span class="token function">markRememberedChecked</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Void.html">Void</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/mark-remembered-checked.html">com.openvireo.core.OvClientInterface.markRememberedChecked</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="883849209%2FFunctions%2F-662999309" anchor-label="openLocal" id="883849209%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="open-local.html"><span>open</span><wbr></wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="883849209%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="open-local.html"><span class="token function">openLocal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">kdbx<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">credentials<span class="token operator">: </span><a href="../../com.openvireo.core/-kdbx-credentials/index.html">KdbxCredentials</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../-j-vault/index.html">JVault</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/open-local.html">com.openvireo.core.OvClientInterface.openLocal</a> With a fresh <a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a>: cancel the future to cancel the call.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="open-local.html"><span class="token function">openLocal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">kdbx<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">credentials<span class="token operator">: </span><a href="../../com.openvireo.core/-kdbx-credentials/index.html">KdbxCredentials</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../-j-vault/index.html">JVault</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/open-local.html">com.openvireo.core.OvClientInterface.openLocal</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="10874599%2FFunctions%2F-662999309" anchor-label="openShare" id="10874599%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="open-share.html"><span>open</span><wbr></wbr><span><span>Share</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="10874599%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="open-share.html"><span class="token function">openShare</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">api<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">link<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">passcode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">info<span class="token operator">: </span><a href="../../com.openvireo.core/-share-info/index.html">ShareInfo</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-opened-share/index.html">OpenedShare</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/open-share.html">com.openvireo.core.OvClientInterface.openShare</a> With a fresh <a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a>: cancel the future to cancel the call.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="open-share.html"><span class="token function">openShare</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">api<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">link<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">passcode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">info<span class="token operator">: </span><a href="../../com.openvireo.core/-share-info/index.html">ShareInfo</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-opened-share/index.html">OpenedShare</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/open-share.html">com.openvireo.core.OvClientInterface.openShare</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1421764964%2FFunctions%2F-662999309" anchor-label="rememberAccount" id="1421764964%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remember-account.html"><span>remember</span><wbr></wbr><span><span>Account</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1421764964%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remember-account.html"><span class="token function">rememberAccount</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">email<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Void.html">Void</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/remember-account.html">com.openvireo.core.OvClientInterface.rememberAccount</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2132140066%2FFunctions%2F-662999309" anchor-label="rememberedAccounts" id="-2132140066%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remembered-accounts.html"><span>remembered</span><wbr></wbr><span><span>Accounts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2132140066%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remembered-accounts.html"><span class="token function">rememberedAccounts</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-remembered-account/index.html">RememberedAccount</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/remembered-accounts.html">com.openvireo.core.OvClientInterface.rememberedAccounts</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1971637962%2FFunctions%2F-662999309" anchor-label="scope" id="-1971637962%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="scope.html"><span><span>scope</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1971637962%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="scope.html"><span class="token function">scope</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a></div><div class="brief "><p class="paragraph">The scope this wrapper's futures run on.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="228062004%2FFunctions%2F-662999309" anchor-label="sessionState" id="228062004%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="session-state.html"><span>session</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="228062004%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="session-state.html"><span class="token function">sessionState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-session-state/index.html">SessionState</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/session-state.html">com.openvireo.core.OvClientInterface.sessionState</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1532040765%2FFunctions%2F-662999309" anchor-label="setRememberedDeletion" id="-1532040765%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-remembered-deletion.html"><span>set</span><wbr></wbr><span>Remembered</span><wbr></wbr><span><span>Deletion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1532040765%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-remembered-deletion.html"><span class="token function">setRememberedDeletion</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">issuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">userId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">at<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Void.html">Void</a><span class="token operator">?</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/set-remembered-deletion.html">com.openvireo.core.OvClientInterface.setRememberedDeletion</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-150228783%2FFunctions%2F-662999309" anchor-label="shareInfo" id="-150228783%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="share-info.html"><span>share</span><wbr></wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-150228783%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="share-info.html"><span class="token function">shareInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">api<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">shareId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-share-info/index.html">ShareInfo</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/share-info.html">com.openvireo.core.OvClientInterface.shareInfo</a> With a fresh <a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a>: cancel the future to cancel the call.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="share-info.html"><span class="token function">shareInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">api<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">shareId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cancel<span class="token operator">: </span><a href="../../com.openvireo.core/-cancel-token/index.html">CancelToken</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><a href="../../com.openvireo.core/-share-info/index.html">ShareInfo</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph"><a href="../../com.openvireo.core/-ov-client-interface/share-info.html">com.openvireo.core.OvClientInterface.shareInfo</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1798044915%2FFunctions%2F-662999309" anchor-label="unwrap" id="-1798044915%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unwrap.html"><span><span>unwrap</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1798044915%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="unwrap.html"><span class="token function">unwrap</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.openvireo.core/-ov-client/index.html">OvClient</a></div><div class="brief "><p class="paragraph">The generated object.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>OpenVireo core, <a href="https://github.com/openvireo/openvireo-core/tree/b56056f2e6c81d984c72ef8f3aae3f0a42fc8c43">b56056f2e6c8</a> &middot; <a href="https://developer.openvireo.com/bindings/kotlin-java/">Kotlin and Java guide</a> &middot; <a href="/reference/java/">Java reference</a> &middot; MIT OR Apache-2.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

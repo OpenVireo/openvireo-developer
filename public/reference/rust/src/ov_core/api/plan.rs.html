@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/ov-core/src/api/plan.rs`."><title>plan.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-1ed95124.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="ov_core" data-themes="" data-resource-suffix="" data-rustdoc-version="1.98.1 (48a229cea 2026-09-01)" data-channel="1.98.1" data-search-js="search-9944d736.js" data-stringdex-js="stringdex-2da4960a.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../../../static.files/src-script-813739b1.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-417ebf0a.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">ov_core/api/</div>plan.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-2"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="doccomment">//! Plans and limits, and In-App Purchase (SPEC §19). Limits only stop new things and the server's
+<a href=#2 id=2 data-nosnippet>2</a>//! check is what counts: clients use these to explain and grey out, never to refuse on their own.
+<a href=#3 id=3 data-nosnippet>3</a>
+<a href=#4 id=4 data-nosnippet>4</a></span><span class="kw">use </span>ov_error::OvError;
+<a href=#5 id=5 data-nosnippet>5</a>
+<a href=#6 id=6 data-nosnippet>6</a><span class="kw">use super</span>::{Account, AppleEligibility, AppleTransactionResult, CancelToken, Plan};
+<a href=#7 id=7 data-nosnippet>7</a>
+<a href=#8 id=8 data-nosnippet>8</a><span class="kw">impl </span>Account {
+<a href=#9 id=9 data-nosnippet>9</a>    <span class="doccomment">/// The account's personal plan (from `GET /me`); `None` on a server without billing.
+<a href=#10 id=10 data-nosnippet>10</a>    </span><span class="kw">pub async fn </span>plan(<span class="kw-2">&amp;</span><span class="self">self</span>, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Plan&gt;, OvError&gt; {
+<a href=#11 id=11 data-nosnippet>11</a>        <span class="kw">let </span>me = <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_me(t), ov_protocol::auth::parse_me).<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#12 id=12 data-nosnippet>12</a>        <span class="prelude-val">Ok</span>(me.plan.as_ref().map(<span class="kw">crate</span>::impls::convert::plan))
+<a href=#13 id=13 data-nosnippet>13</a>    }
+<a href=#14 id=14 data-nosnippet>14</a>
+<a href=#15 id=15 data-nosnippet>15</a>    <span class="doccomment">/// A vault's sync quota in bytes, from the access token's `vlt` claim (`q`); `None` when only the
+<a href=#16 id=16 data-nosnippet>16</a>    /// server's own limit applies.
+<a href=#17 id=17 data-nosnippet>17</a>    </span><span class="kw">pub async fn </span>vault_quota(<span class="kw-2">&amp;</span><span class="self">self</span>, vault_id: String) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;u64&gt;, OvError&gt; {
+<a href=#18 id=18 data-nosnippet>18</a>        <span class="kw">let </span><span class="prelude-val">Some</span>(token) = <span class="self">self</span>.inner.tokens.access_token_now() <span class="kw">else </span>{ <span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>) };
+<a href=#19 id=19 data-nosnippet>19</a>        <span class="kw">let </span><span class="prelude-val">Ok</span>(d) = ov_crypto::jwt::decode_jwt(<span class="kw-2">&amp;</span>token) <span class="kw">else </span>{ <span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>) };
+<a href=#20 id=20 data-nosnippet>20</a>        <span class="prelude-val">Ok</span>(d.claims.vlt.unwrap_or_default().into_iter().find(|v| v.id == vault_id).and_then(|v| v.q))
+<a href=#21 id=21 data-nosnippet>21</a>    }
+<a href=#22 id=22 data-nosnippet>22</a>
+<a href=#23 id=23 data-nosnippet>23</a>    <span class="doccomment">/// Where to change plan after a `plan_limit` error: the error's `upgradeUrl` when it is a
+<a href=#24 id=24 data-nosnippet>24</a>    /// `/subscription/` page of this account's auth site (same scheme or https, host and port), else
+<a href=#25 id=25 data-nosnippet>25</a>    /// the site's `subscription/pricing` page. `None` when the issuer has no host.
+<a href=#26 id=26 data-nosnippet>26</a>    </span><span class="kw">pub fn </span>upgrade_url(<span class="kw-2">&amp;</span><span class="self">self</span>, error: OvError) -&gt; <span class="prelude-ty">Option</span>&lt;String&gt; {
+<a href=#27 id=27 data-nosnippet>27</a>        <span class="kw">crate</span>::impls::plan::upgrade_url(error.details.as_deref(), <span class="kw-2">&amp;</span><span class="self">self</span>.inner.config.issuer)
+<a href=#28 id=28 data-nosnippet>28</a>    }
+<a href=#29 id=29 data-nosnippet>29</a>
+<a href=#30 id=30 data-nosnippet>30</a>    <span class="doccomment">/// Whether the App Store may sell a plan to this user (`org_id` `None`) or to one of their orgs.
+<a href=#31 id=31 data-nosnippet>31</a>    </span><span class="kw">pub async fn </span>apple_eligibility(
+<a href=#32 id=32 data-nosnippet>32</a>        <span class="kw-2">&amp;</span><span class="self">self</span>,
+<a href=#33 id=33 data-nosnippet>33</a>        org_id: <span class="prelude-ty">Option</span>&lt;String&gt;,
+<a href=#34 id=34 data-nosnippet>34</a>        cancel: CancelToken,
+<a href=#35 id=35 data-nosnippet>35</a>    ) -&gt; <span class="prelude-ty">Result</span>&lt;AppleEligibility, OvError&gt; {
+<a href=#36 id=36 data-nosnippet>36</a>        <span class="kw">let </span>e = <span class="self">self
+<a href=#37 id=37 data-nosnippet>37</a>            </span>.call(
+<a href=#38 id=38 data-nosnippet>38</a>                <span class="kw-2">&amp;</span>cancel,
+<a href=#39 id=39 data-nosnippet>39</a>                |a, t| a.build_apple_eligibility(t, org_id.as_deref()),
+<a href=#40 id=40 data-nosnippet>40</a>                ov_protocol::auth::parse_apple_eligibility,
+<a href=#41 id=41 data-nosnippet>41</a>            )
+<a href=#42 id=42 data-nosnippet>42</a>            .<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#43 id=43 data-nosnippet>43</a>        <span class="prelude-val">Ok</span>(AppleEligibility { eligible: e.eligible, reason: e.reason })
+<a href=#44 id=44 data-nosnippet>44</a>    }
+<a href=#45 id=45 data-nosnippet>45</a>
+<a href=#46 id=46 data-nosnippet>46</a>    <span class="doccomment">/// Reports a StoreKit transaction's JWS to the auth server; returns the plan now.
+<a href=#47 id=47 data-nosnippet>47</a>    </span><span class="kw">pub async fn </span>report_apple_transaction(
+<a href=#48 id=48 data-nosnippet>48</a>        <span class="kw-2">&amp;</span><span class="self">self</span>,
+<a href=#49 id=49 data-nosnippet>49</a>        jws: String,
+<a href=#50 id=50 data-nosnippet>50</a>        cancel: CancelToken,
+<a href=#51 id=51 data-nosnippet>51</a>    ) -&gt; <span class="prelude-ty">Result</span>&lt;AppleTransactionResult, OvError&gt; {
+<a href=#52 id=52 data-nosnippet>52</a>        <span class="kw">let </span>r = <span class="self">self
+<a href=#53 id=53 data-nosnippet>53</a>            </span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_report_apple_transaction(t, <span class="kw-2">&amp;</span>jws), ov_protocol::auth::parse_apple_transaction)
+<a href=#54 id=54 data-nosnippet>54</a>            .<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#55 id=55 data-nosnippet>55</a>        <span class="prelude-val">Ok</span>(AppleTransactionResult { subject: r.subject, plan: <span class="kw">crate</span>::impls::convert::plan(<span class="kw-2">&amp;</span>r.plan) })
+<a href=#56 id=56 data-nosnippet>56</a>    }
+<a href=#57 id=57 data-nosnippet>57</a>}
+</code></pre></div></section></main></body></html>

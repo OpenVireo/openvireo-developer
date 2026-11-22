@@ -1,0 +1,28 @@
+---
+title: API reference
+description: Every type and function, generated from the source, for each language.
+tableOfContents: false
+editUrl: false
+prev: false
+sidebar:
+  label: Overview
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The guides explain how things fit together; these pages list everything, generated from the source by each
+language's own tool. Every binding wraps the same Rust core, so the names and error codes match.
+
+<CardGrid>
+	<LinkCard title="TypeScript" description="@openvireo/sdk, generated with TypeDoc." href="/sdk/api/" />
+	<LinkCard title="Rust" description="ov-core and the crates in its API, generated with rustdoc." href="/reference/rust/" />
+	<LinkCard title="Kotlin" description="com.openvireo.core for the JVM, generated with Dokka." href="/reference/kotlin/" />
+	<LinkCard title="Java" description="com.openvireo.core.java and the types it uses, generated with javadoc." href="/reference/java/" />
+	<LinkCard title="Swift" description="The OpenVireoRustCore module, generated with DocC." href="/reference/swift/" />
+	<LinkCard title="Python" description="The openvireo package, generated with pdoc." href="/reference/python/" />
+	<LinkCard title="C++" description="ovcore.h, host.h and the cxx bridge, generated with Doxygen." href="/reference/cpp/" />
+	<LinkCard title="HTTP API" description="The sync server's routes, from its OpenAPI description." href="/api/reference/" />
+</CardGrid>
+
+The guides for each language: [TypeScript SDK](/sdk/), [Python](/bindings/python/),
+[Kotlin and Java](/bindings/kotlin-java/), [all bindings](/bindings/).

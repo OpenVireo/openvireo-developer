@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Level","Method","TransportError"],"struct":["CachedVault","Host","HttpRequest","HttpResponse"],"trait":["BlobCache","ByteStream","Clock","HttpTransport","LogSink","MaybeSend","MaybeSync","SecureStore"]};

@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['k_0',['k',['../structov_1_1_share_field.html#a85232f502ccbdde0e86996ce4dbaddab',1,'ov::ShareField']]],
+  ['kdbx_1',['kdbx',['../structov_1_1_self_hosted_sync_result.html#a59466fc256a318e0547293065d78295f',1,'ov::SelfHostedSyncResult::kdbx'],['../structov_1_1_vault_kdbx_sync_result.html#afe8b89e6f94423c80af77d6b3b94236c',1,'ov::VaultKdbxSyncResult::kdbx']]],
+  ['kdf_2',['kdf',['../structov_1_1_register_input.html#aaabbc8e8fa31324ccb116ded2c126ce3',1,'ov::RegisterInput::kdf'],['../structov_1_1_profile.html#a183c64a1459cd1cdaf2e782d6bf9c918',1,'ov::Profile::kdf'],['../structov_1_1_share_info.html#aae19ec3ebce9841fde3cd725271539fa',1,'ov::ShareInfo::kdf']]],
+  ['kdf_5fmin_5fm_3',['kdf_min_m',['../structov_1_1_server_config.html#a415266ef2f6d8746827121a9e84d0db0',1,'ov::ServerConfig']]],
+  ['kdf_5fmin_5ft_4',['kdf_min_t',['../structov_1_1_server_config.html#a473196907ad6017821743def2a0fe806',1,'ov::ServerConfig']]],
+  ['keepalive_5',['keepalive',['../structov_1_1_http_request.html#a7690bf5e3fb5dec2a1817e7d550b032c',1,'ov::HttpRequest']]],
+  ['kek_6',['kek',['../structov_1_1_service_account_token.html#a51f305fb34b4940cf336b47f4841b830',1,'ov::ServiceAccountToken']]],
+  ['key_5ffile_7',['key_file',['../structov_1_1_kdbx_credentials.html#ac00c350320fc435ae0f3bf12642d8285',1,'ov::KdbxCredentials']]],
+  ['key_5fversion_8',['key_version',['../structov_1_1_vault_member.html#ac9bc402180ee1711a73dc11cdf7060a0',1,'ov::VaultMember']]],
+  ['kind_9',['kind',['../structov_1_1_transport_failure.html#af61a3a30b912f444cec1949e03843054',1,'ov::TransportFailure::kind'],['../structov_1_1_sync_conflict.html#aff1772c43f6a1c95be4143164118cf5e',1,'ov::SyncConflict::kind'],['../structov_1_1_account_event.html#ad56086e8c2f54b5221143e5bdd6b6af2',1,'ov::AccountEvent::kind'],['../structov_1_1_import_mode.html#a0c3890d652d74e66cccb3d69257a2bd2',1,'ov::ImportMode::kind'],['../structov_1_1_entry_expiry.html#a5b6aab24475bf276a3fa39b0396df793',1,'ov::EntryExpiry::kind'],['../structov_1_1_local_import_mode.html#a2c739fad288dcfd1e4bf32611faab397',1,'ov::LocalImportMode::kind'],['../structov_1_1_kdbx_kdf.html#a85f6ebd9be8b33758d23e529cd3d37a9',1,'ov::KdbxKdf::kind'],['../structov_1_1_test_stream_poll.html#a5cd0d1a1135326ed5daabec1338883df',1,'ov::TestStreamPoll::kind'],['../structov_1_1_grantee.html#a925c84fb12cae6440b6d2386cf11f6dd',1,'ov::Grantee::kind'],['../structov_1_1_expiry_change.html#ad867153c4dd2a90974bf8dc88b83f341',1,'ov::ExpiryChange::kind'],['../structov_1_1_share_payload.html#a71aaff2677a0cb31f5a768101a0a6deb',1,'ov::SharePayload::kind'],['../structov_1_1_shareable_field.html#a9e86b62abcac2de6b558948871f02032',1,'ov::ShareableField::kind']]]
+];

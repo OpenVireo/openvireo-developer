@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ed25519_5fpublic_5fkey_0',['ed25519_public_key',['../namespaceov.html#afaa9c3488df9d279cd204d792e94a186',1,'ov']]],
+  ['ed25519_5fsign_1',['ed25519_sign',['../namespaceov.html#af4d7baa7f9a0239262f9eb4912278b75',1,'ov']]],
+  ['ed25519_5fverify_2',['ed25519_verify',['../namespaceov.html#ae52e17c90147d5be33a66c20d254f228',1,'ov']]],
+  ['edit_5fentry_3',['edit_entry',['../structov_1_1_vault.html#ab46247a241c662de8757d7e44a467f91',1,'ov::Vault']]],
+  ['email_4',['email',['../structov_1_1_account.html#aa857a079227fdb3a133a3204fb10c925',1,'ov::Account']]],
+  ['email_5fcode_5',['email_code',['../structov_1_1_test_servers.html#ad83ffb3474ddbab06fa2ff835f64b7d3',1,'ov::TestServers']]],
+  ['empty_5frecycle_5fbin_6',['empty_recycle_bin',['../structov_1_1_vault.html#aa0ead0f9089b3440b1d9ab6d1357ff9e',1,'ov::Vault']]],
+  ['ensure_5fgroup_7',['ensure_group',['../structov_1_1_vault.html#abad9e8892da6e10b157f177a5c59ec34',1,'ov::Vault']]],
+  ['entries_8',['entries',['../structov_1_1_vault.html#a6ccad84fdc7e4b0e565f5e3ae171afa6',1,'ov::Vault']]],
+  ['entry_9',['entry',['../structov_1_1_vault.html#a24056392e8da5501b589597349503ddb',1,'ov::Vault']]],
+  ['entry_5frecords_10',['entry_records',['../structov_1_1_vault.html#ae82f119219928d9628970134e2a48670',1,'ov::Vault']]],
+  ['entry_5ftotp_5furi_11',['entry_totp_uri',['../namespaceov.html#a3344039a4a9baa9c6901dfa8d26dd4a4',1,'ov']]],
+  ['error_12',['Error',['../classov_1_1_error.html#ab2258c0b523a274289862e1b230e3079',1,'ov::Error']]],
+  ['etag_13',['etag',['../structov_1_1_vault.html#ad5cf571a6c1544bb428f002796c35c93',1,'ov::Vault']]],
+  ['events_14',['events',['../structov_1_1_self_hosted.html#a42ee0130b497cec2b6537f56a677cf18',1,'ov::SelfHosted']]],
+  ['export_5fkdbx_15',['export_kdbx',['../structov_1_1_vault.html#ad336a9665a7ba7aef59cf5050bf8c088',1,'ov::Vault']]],
+  ['export_5fkdbx_5fwith_16',['export_kdbx_with',['../structov_1_1_vault.html#aa28d762f9f7820fc71c20cde37e6a7d7',1,'ov::Vault']]],
+  ['export_5fplain_17',['export_plain',['../structov_1_1_vault.html#afb7686d3ddfc578f2e165584b6c8f138',1,'ov::Vault']]]
+];

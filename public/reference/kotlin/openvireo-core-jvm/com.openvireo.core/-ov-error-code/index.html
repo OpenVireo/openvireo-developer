@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>OvErrorCode</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../../index.html" tabindex="1">
+                    openvireo-core-jvm
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+b56056f2e6c8        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":core-jvm/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":core-jvm/main"
+                                       data-filter=":core-jvm/main"/>
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+                <a class="navigation-controls--btn navigation-controls--btn_homepage" id="homepage-link"
+                   href="https://developer.openvireo.com/bindings/kotlin-java/"></a>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    openvireo-core-jvm
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="openvireo-core-jvm::com.openvireo.core/OvErrorCode///PointingToDeclaration//-662999309">
+  <div class="breadcrumbs"><a href="../../../index.html">openvireo-core-jvm</a><span class="delimiter">/</span><a href="../index.html">com.openvireo.core</a><span class="delimiter">/</span><span class="current">OvErrorCode</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Ov</span><wbr></wbr><span>Error</span><wbr></wbr><span><span>Code</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">enum class </span><a href="index.html">OvErrorCode</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">OvErrorCode</a><span class="token operator">&gt; </span></div><p class="paragraph">The error code: <code class="lang-kotlin">ov_error::OvErrorCode</code> one for one (wire strings via <code class="lang-kotlin">error_code_wire</code>).</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="ENTRY">Entries</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="ENTRY">
+        <h2 class="tableheader">Entries</h2>
+        <div class="table"><a data-name="-1193963602%2FClasslikes%2F-662999309" anchor-label="UNSUPPORTED_VERSION" id="-1193963602%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-s-u-p-p-o-r-t-e-d_-v-e-r-s-i-o-n/index.html">UNSUPPORTED_VERSION</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1193963602%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-u-n-s-u-p-p-o-r-t-e-d_-v-e-r-s-i-o-n/index.html">UNSUPPORTED_VERSION</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="291336321%2FClasslikes%2F-662999309" anchor-label="DECRYPTION_FAILED" id="291336321%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-d-e-c-r-y-p-t-i-o-n_-f-a-i-l-e-d/index.html">DECRYPTION_FAILED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="291336321%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-d-e-c-r-y-p-t-i-o-n_-f-a-i-l-e-d/index.html">DECRYPTION_FAILED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-382785632%2FClasslikes%2F-662999309" anchor-label="INVALID_SECRET_KEY" id="-382785632%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-s-e-c-r-e-t_-k-e-y/index.html">INVALID_SECRET_KEY</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-382785632%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-s-e-c-r-e-t_-k-e-y/index.html">INVALID_SECRET_KEY</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="898467778%2FClasslikes%2F-662999309" anchor-label="INVALID_PUBLIC_KEYS" id="898467778%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-p-u-b-l-i-c_-k-e-y-s/index.html">INVALID_PUBLIC_KEYS</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="898467778%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-p-u-b-l-i-c_-k-e-y-s/index.html">INVALID_PUBLIC_KEYS</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1400289873%2FClasslikes%2F-662999309" anchor-label="INVALID_TOKEN" id="1400289873%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-t-o-k-e-n/index.html">INVALID_TOKEN</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1400289873%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-t-o-k-e-n/index.html">INVALID_TOKEN</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1533767346%2FClasslikes%2F-662999309" anchor-label="WEAK_KDF" id="-1533767346%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-w-e-a-k_-k-d-f/index.html">WEAK_KDF</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1533767346%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-w-e-a-k_-k-d-f/index.html">WEAK_KDF</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="738282292%2FClasslikes%2F-662999309" anchor-label="LOW_ORDER_POINT" id="738282292%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-w_-o-r-d-e-r_-p-o-i-n-t/index.html">LOW_ORDER_POINT</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="738282292%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-l-o-w_-o-r-d-e-r_-p-o-i-n-t/index.html">LOW_ORDER_POINT</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1451224443%2FClasslikes%2F-662999309" anchor-label="OPAQUE_FAILED" id="1451224443%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-o-p-a-q-u-e_-f-a-i-l-e-d/index.html">OPAQUE_FAILED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1451224443%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-o-p-a-q-u-e_-f-a-i-l-e-d/index.html">OPAQUE_FAILED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="530066279%2FClasslikes%2F-662999309" anchor-label="INVALID_REQUEST" id="530066279%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-r-e-q-u-e-s-t/index.html">INVALID_REQUEST</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="530066279%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-r-e-q-u-e-s-t/index.html">INVALID_REQUEST</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-341254404%2FClasslikes%2F-662999309" anchor-label="UNAUTHORIZED" id="-341254404%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-a-u-t-h-o-r-i-z-e-d/index.html">UNAUTHORIZED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-341254404%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-u-n-a-u-t-h-o-r-i-z-e-d/index.html">UNAUTHORIZED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2085150535%2FClasslikes%2F-662999309" anchor-label="FORBIDDEN" id="-2085150535%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-f-o-r-b-i-d-d-e-n/index.html">FORBIDDEN</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2085150535%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-f-o-r-b-i-d-d-e-n/index.html">FORBIDDEN</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1927831286%2FClasslikes%2F-662999309" anchor-label="NOT_FOUND" id="1927831286%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-o-t_-f-o-u-n-d/index.html">NOT_FOUND</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1927831286%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-n-o-t_-f-o-u-n-d/index.html">NOT_FOUND</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="744936282%2FClasslikes%2F-662999309" anchor-label="CONFLICT" id="744936282%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-o-n-f-l-i-c-t/index.html">CONFLICT</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="744936282%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-c-o-n-f-l-i-c-t/index.html">CONFLICT</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1096480995%2FClasslikes%2F-662999309" anchor-label="RATE_LIMITED" id="1096480995%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-a-t-e_-l-i-m-i-t-e-d/index.html">RATE_LIMITED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1096480995%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-r-a-t-e_-l-i-m-i-t-e-d/index.html">RATE_LIMITED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2074544830%2FClasslikes%2F-662999309" anchor-label="MFA_REQUIRED" id="2074544830%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-f-a_-r-e-q-u-i-r-e-d/index.html">MFA_REQUIRED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2074544830%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-m-f-a_-r-e-q-u-i-r-e-d/index.html">MFA_REQUIRED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1787935488%2FClasslikes%2F-662999309" anchor-label="INVALID_MFA" id="1787935488%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-m-f-a/index.html">INVALID_MFA</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1787935488%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-m-f-a/index.html">INVALID_MFA</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="313177774%2FClasslikes%2F-662999309" anchor-label="MFA_EXPIRED" id="313177774%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-f-a_-e-x-p-i-r-e-d/index.html">MFA_EXPIRED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="313177774%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-m-f-a_-e-x-p-i-r-e-d/index.html">MFA_EXPIRED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1747510564%2FClasslikes%2F-662999309" anchor-label="SESSION_EXPIRED" id="-1747510564%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-e-s-s-i-o-n_-e-x-p-i-r-e-d/index.html">SESSION_EXPIRED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1747510564%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-s-e-s-s-i-o-n_-e-x-p-i-r-e-d/index.html">SESSION_EXPIRED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1298137118%2FClasslikes%2F-662999309" anchor-label="TOKEN_REUSED" id="1298137118%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-t-o-k-e-n_-r-e-u-s-e-d/index.html">TOKEN_REUSED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1298137118%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-t-o-k-e-n_-r-e-u-s-e-d/index.html">TOKEN_REUSED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-378671836%2FClasslikes%2F-662999309" anchor-label="PRECONDITION_FAILED" id="-378671836%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-r-e-c-o-n-d-i-t-i-o-n_-f-a-i-l-e-d/index.html">PRECONDITION_FAILED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-378671836%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-p-r-e-c-o-n-d-i-t-i-o-n_-f-a-i-l-e-d/index.html">PRECONDITION_FAILED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-986539962%2FClasslikes%2F-662999309" anchor-label="PRECONDITION_REQUIRED" id="-986539962%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-r-e-c-o-n-d-i-t-i-o-n_-r-e-q-u-i-r-e-d/index.html">PRECONDITION_REQUIRED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-986539962%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-p-r-e-c-o-n-d-i-t-i-o-n_-r-e-q-u-i-r-e-d/index.html">PRECONDITION_REQUIRED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1560671897%2FClasslikes%2F-662999309" anchor-label="GONE" id="-1560671897%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-g-o-n-e/index.html">GONE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1560671897%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-g-o-n-e/index.html">GONE</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="628334068%2FClasslikes%2F-662999309" anchor-label="SERVER_ERROR" id="628334068%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-e-r-v-e-r_-e-r-r-o-r/index.html">SERVER_ERROR</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="628334068%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-s-e-r-v-e-r_-e-r-r-o-r/index.html">SERVER_ERROR</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="854564567%2FClasslikes%2F-662999309" anchor-label="NETWORK_ERROR" id="854564567%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-e-t-w-o-r-k_-e-r-r-o-r/index.html">NETWORK_ERROR</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="854564567%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-n-e-t-w-o-r-k_-e-r-r-o-r/index.html">NETWORK_ERROR</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1469656948%2FClasslikes%2F-662999309" anchor-label="INSECURE_URL" id="1469656948%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s-e-c-u-r-e_-u-r-l/index.html">INSECURE_URL</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1469656948%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-s-e-c-u-r-e_-u-r-l/index.html">INSECURE_URL</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1312191405%2FClasslikes%2F-662999309" anchor-label="SIGNED_OUT" id="-1312191405%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-i-g-n-e-d_-o-u-t/index.html">SIGNED_OUT</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1312191405%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-s-i-g-n-e-d_-o-u-t/index.html">SIGNED_OUT</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="189881877%2FClasslikes%2F-662999309" anchor-label="RECOVERY_NOT_READY" id="189881877%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-c-o-v-e-r-y_-n-o-t_-r-e-a-d-y/index.html">RECOVERY_NOT_READY</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="189881877%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-r-e-c-o-v-e-r-y_-n-o-t_-r-e-a-d-y/index.html">RECOVERY_NOT_READY</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1496734927%2FClasslikes%2F-662999309" anchor-label="RECOVERY_CANCELLED" id="1496734927%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-c-o-v-e-r-y_-c-a-n-c-e-l-l-e-d/index.html">RECOVERY_CANCELLED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1496734927%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-r-e-c-o-v-e-r-y_-c-a-n-c-e-l-l-e-d/index.html">RECOVERY_CANCELLED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1294367549%2FClasslikes%2F-662999309" anchor-label="RESTORE_LOCKED" id="-1294367549%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-t-o-r-e_-l-o-c-k-e-d/index.html">RESTORE_LOCKED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1294367549%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-r-e-s-t-o-r-e_-l-o-c-k-e-d/index.html">RESTORE_LOCKED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1726648228%2FClasslikes%2F-662999309" anchor-label="INVALID_PROOF" id="-1726648228%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-p-r-o-o-f/index.html">INVALID_PROOF</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1726648228%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-p-r-o-o-f/index.html">INVALID_PROOF</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-678157747%2FClasslikes%2F-662999309" anchor-label="PLAN_LIMIT" id="-678157747%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-l-a-n_-l-i-m-i-t/index.html">PLAN_LIMIT</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-678157747%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-p-l-a-n_-l-i-m-i-t/index.html">PLAN_LIMIT</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1217002526%2FClasslikes%2F-662999309" anchor-label="QUOTA_EXCEEDED" id="-1217002526%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-q-u-o-t-a_-e-x-c-e-e-d-e-d/index.html">QUOTA_EXCEEDED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1217002526%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-q-u-o-t-a_-e-x-c-e-e-d-e-d/index.html">QUOTA_EXCEEDED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="224495908%2FClasslikes%2F-662999309" anchor-label="BILLED_BY_STRIPE" id="224495908%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-b-i-l-l-e-d_-b-y_-s-t-r-i-p-e/index.html">BILLED_BY_STRIPE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="224495908%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-b-i-l-l-e-d_-b-y_-s-t-r-i-p-e/index.html">BILLED_BY_STRIPE</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1171955753%2FClasslikes%2F-662999309" anchor-label="APPLE_SUBSCRIPTION_BOUND" id="1171955753%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-a-p-p-l-e_-s-u-b-s-c-r-i-p-t-i-o-n_-b-o-u-n-d/index.html">APPLE_SUBSCRIPTION_BOUND</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1171955753%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-a-p-p-l-e_-s-u-b-s-c-r-i-p-t-i-o-n_-b-o-u-n-d/index.html">APPLE_SUBSCRIPTION_BOUND</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="227568636%2FClasslikes%2F-662999309" anchor-label="APPLE_VERIFICATION_FAILED" id="227568636%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-a-p-p-l-e_-v-e-r-i-f-i-c-a-t-i-o-n_-f-a-i-l-e-d/index.html">APPLE_VERIFICATION_FAILED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="227568636%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-a-p-p-l-e_-v-e-r-i-f-i-c-a-t-i-o-n_-f-a-i-l-e-d/index.html">APPLE_VERIFICATION_FAILED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1350949283%2FClasslikes%2F-662999309" anchor-label="VAULT_KEY_MISMATCH" id="1350949283%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-a-u-l-t_-k-e-y_-m-i-s-m-a-t-c-h/index.html">VAULT_KEY_MISMATCH</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1350949283%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-v-a-u-l-t_-k-e-y_-m-i-s-m-a-t-c-h/index.html">VAULT_KEY_MISMATCH</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2087747684%2FClasslikes%2F-662999309" anchor-label="NO_VAULT_KEY" id="-2087747684%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-o_-v-a-u-l-t_-k-e-y/index.html">NO_VAULT_KEY</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2087747684%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-n-o_-v-a-u-l-t_-k-e-y/index.html">NO_VAULT_KEY</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1387704608%2FClasslikes%2F-662999309" anchor-label="KDBX_ERROR" id="1387704608%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-d-b-x_-e-r-r-o-r/index.html">KDBX_ERROR</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1387704608%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-k-d-b-x_-e-r-r-o-r/index.html">KDBX_ERROR</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2137767860%2FClasslikes%2F-662999309" anchor-label="MERGE_FAILED" id="-2137767860%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-e-r-g-e_-f-a-i-l-e-d/index.html">MERGE_FAILED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2137767860%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-m-e-r-g-e_-f-a-i-l-e-d/index.html">MERGE_FAILED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1457228790%2FClasslikes%2F-662999309" anchor-label="SERVER_ROLLED_BACK" id="1457228790%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-e-r-v-e-r_-r-o-l-l-e-d_-b-a-c-k/index.html">SERVER_ROLLED_BACK</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1457228790%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-s-e-r-v-e-r_-r-o-l-l-e-d_-b-a-c-k/index.html">SERVER_ROLLED_BACK</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1987797954%2FClasslikes%2F-662999309" anchor-label="SERVER_LOST_DATABASE" id="1987797954%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-e-r-v-e-r_-l-o-s-t_-d-a-t-a-b-a-s-e/index.html">SERVER_LOST_DATABASE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1987797954%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-s-e-r-v-e-r_-l-o-s-t_-d-a-t-a-b-a-s-e/index.html">SERVER_LOST_DATABASE</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-972442540%2FClasslikes%2F-662999309" anchor-label="TOO_MANY_CONFLICTS" id="-972442540%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-t-o-o_-m-a-n-y_-c-o-n-f-l-i-c-t-s/index.html">TOO_MANY_CONFLICTS</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-972442540%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-t-o-o_-m-a-n-y_-c-o-n-f-l-i-c-t-s/index.html">TOO_MANY_CONFLICTS</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="184640035%2FClasslikes%2F-662999309" anchor-label="INVALID_REFERENCE" id="184640035%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-r-e-f-e-r-e-n-c-e/index.html">INVALID_REFERENCE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="184640035%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-r-e-f-e-r-e-n-c-e/index.html">INVALID_REFERENCE</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1164245769%2FClasslikes%2F-662999309" anchor-label="ENTRY_NOT_FOUND" id="1164245769%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e-n-t-r-y_-n-o-t_-f-o-u-n-d/index.html">ENTRY_NOT_FOUND</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1164245769%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-e-n-t-r-y_-n-o-t_-f-o-u-n-d/index.html">ENTRY_NOT_FOUND</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-455333759%2FClasslikes%2F-662999309" anchor-label="NOT_AVAILABLE_OFFLINE" id="-455333759%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-o-t_-a-v-a-i-l-a-b-l-e_-o-f-f-l-i-n-e/index.html">NOT_AVAILABLE_OFFLINE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-455333759%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-n-o-t_-a-v-a-i-l-a-b-l-e_-o-f-f-l-i-n-e/index.html">NOT_AVAILABLE_OFFLINE</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1852935186%2FClasslikes%2F-662999309" anchor-label="VAULT_UPLOAD_FAILED" id="-1852935186%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-v-a-u-l-t_-u-p-l-o-a-d_-f-a-i-l-e-d/index.html">VAULT_UPLOAD_FAILED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1852935186%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-v-a-u-l-t_-u-p-l-o-a-d_-f-a-i-l-e-d/index.html">VAULT_UPLOAD_FAILED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-45476593%2FClasslikes%2F-662999309" anchor-label="ABORTED" id="-45476593%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-a-b-o-r-t-e-d/index.html">ABORTED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-45476593%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-a-b-o-r-t-e-d/index.html">ABORTED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1424821526%2FClasslikes%2F-662999309" anchor-label="INVALID_LINK" id="-1424821526%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-l-i-n-k/index.html">INVALID_LINK</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1424821526%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-l-i-n-k/index.html">INVALID_LINK</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1986027374%2FClasslikes%2F-662999309" anchor-label="INVALID_PASSCODE" id="1986027374%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-p-a-s-s-c-o-d-e/index.html">INVALID_PASSCODE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1986027374%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-p-a-s-s-c-o-d-e/index.html">INVALID_PASSCODE</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1577971680%2FClasslikes%2F-662999309" anchor-label="PASSCODE_REQUIRED" id="1577971680%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-p-a-s-s-c-o-d-e_-r-e-q-u-i-r-e-d/index.html">PASSCODE_REQUIRED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1577971680%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-p-a-s-s-c-o-d-e_-r-e-q-u-i-r-e-d/index.html">PASSCODE_REQUIRED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2033535079%2FClasslikes%2F-662999309" anchor-label="INVALID_TOTP" id="2033535079%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-t-o-t-p/index.html">INVALID_TOTP</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2033535079%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-t-o-t-p/index.html">INVALID_TOTP</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1349486870%2FClasslikes%2F-662999309" anchor-label="INVALID_PASSWORD_HASH" id="-1349486870%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-v-a-l-i-d_-p-a-s-s-w-o-r-d_-h-a-s-h/index.html">INVALID_PASSWORD_HASH</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1349486870%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-v-a-l-i-d_-p-a-s-s-w-o-r-d_-h-a-s-h/index.html">INVALID_PASSWORD_HASH</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-40670480%2FClasslikes%2F-662999309" anchor-label="TOO_LARGE" id="-40670480%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-t-o-o_-l-a-r-g-e/index.html">TOO_LARGE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-40670480%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-t-o-o_-l-a-r-g-e/index.html">TOO_LARGE</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1769785611%2FClasslikes%2F-662999309" anchor-label="UNSUPPORTED" id="-1769785611%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-s-u-p-p-o-r-t-e-d/index.html">UNSUPPORTED</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1769785611%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-u-n-s-u-p-p-o-r-t-e-d/index.html">UNSUPPORTED</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1172079355%2FClasslikes%2F-662999309" anchor-label="INTERNAL" id="-1172079355%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-togglable="ENTRY" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-t-e-r-n-a-l/index.html">INTERNAL</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1172079355%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><div class="block"><a href="-i-n-t-e-r-n-a-l/index.html">INTERNAL</a></div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="1013140025%2FClasslikes%2F-662999309" anchor-label="Companion" id="1013140025%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1013140025%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Companion properties</h2>
+        <div class="table"><a data-name="-1825672699%2FProperties%2F-662999309" anchor-label="entries" id="-1825672699%2FProperties%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="entries.html"><span><span>entries</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1825672699%2FProperties%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">OvErrorCode</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns an immutable <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">kotlin.enums.EnumEntries</a> list containing the constants of this enum type, in the order they're declared.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Companion functions</h2>
+        <div class="table"><a data-name="-1135335011%2FFunctions%2F-662999309" anchor-label="valueOf" id="-1135335011%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="value-of.html"><span>value</span><wbr></wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1135335011%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="value-of.html"><span class="token function">valueOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">OvErrorCode</a></div><div class="brief "><p class="paragraph">Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="661882153%2FFunctions%2F-662999309" anchor-label="values" id="661882153%2FFunctions%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="values.html"><span><span>values</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="661882153%2FFunctions%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="values.html"><span class="token function">values</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html">OvErrorCode</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns an array containing the constants of this enum type, in the order they're declared.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-372974862%2FProperties%2F-662999309" anchor-label="name" id="-372974862%2FProperties%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-version-difference/-d-e-l-e-t-e-d/index.html#-372974862%2FProperties%2F-662999309"><span><span>name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="../-version-difference/-d-e-l-e-t-e-d/index.html#-372974862%2FProperties%2F-662999309">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-739389684%2FProperties%2F-662999309" anchor-label="ordinal" id="-739389684%2FProperties%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-version-difference/-d-e-l-e-t-e-d/index.html#-739389684%2FProperties%2F-662999309"><span><span>ordinal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="../-version-difference/-d-e-l-e-t-e-d/index.html#-739389684%2FProperties%2F-662999309">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>OpenVireo core, <a href="https://github.com/openvireo/openvireo-core/tree/b56056f2e6c81d984c72ef8f3aae3f0a42fc8c43">b56056f2e6c8</a> &middot; <a href="https://developer.openvireo.com/bindings/kotlin-java/">Kotlin and Java guide</a> &middot; <a href="/reference/java/">Java reference</a> &middot; MIT OR Apache-2.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

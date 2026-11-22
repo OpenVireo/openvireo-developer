@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['id_0',['id',['../structov_1_1_vault.html#a30aea366a123b76adb55853198a9c1cb',1,'ov::Vault']]],
+  ['import_5ffrom_1',['import_from',['../structov_1_1_vault.html#a8a70330b466254e9af3f0e99e46e42f5',1,'ov::Vault']]],
+  ['import_5fkdbx_2',['import_kdbx',['../structov_1_1_account.html#a792a3de6cfdc9c4d9415fb66b74e32dd',1,'ov::Account']]],
+  ['import_5fpreview_3',['import_preview',['../structov_1_1_vault.html#a370d53a59e85f7dc53448ad92ffaf6bc',1,'ov::Vault']]],
+  ['import_5ftargets_4',['import_targets',['../structov_1_1_vault.html#a0ce09d6841d0def6aabf953e098a2682',1,'ov::Vault']]],
+  ['import_5fvault_5',['import_vault',['../structov_1_1_account.html#aaea3db712bae10b180a7fa109a46dada',1,'ov::Account']]],
+  ['info_6',['info',['../classov_1_1_error.html#a46c15fcdc02e5b3bb851e4b865c4c607',1,'ov::Error::info()'],['../structov_1_1_vault.html#ab47ae1e1ca8c6725c077e6586527f271',1,'ov::Vault::info()']]],
+  ['inject_7',['inject',['../structov_1_1_service_account.html#a7a9eb022c12892cf3747e832565d5128',1,'ov::ServiceAccount']]],
+  ['invitation_5ftoken_8',['invitation_token',['../structov_1_1_test_servers.html#aca250fca1dd2783eb2c9563d1a792170',1,'ov::TestServers']]],
+  ['invitations_9',['invitations',['../structov_1_1_account.html#ac3c25544f3023c76f41b031d3317038a',1,'ov::Account']]],
+  ['invite_10',['invite',['../structov_1_1_account.html#adf65ae865687eae8b04508ae7515cf13',1,'ov::Account']]],
+  ['is_5fcancelled_11',['is_cancelled',['../structov_1_1_cancel_token.html#adfb63f2bf8eb5d87c12b3f513ef2e08a',1,'ov::CancelToken']]],
+  ['is_5fin_5frecycle_5fbin_12',['is_in_recycle_bin',['../structov_1_1_vault.html#a75f412c6da5549d2810a596f5adfae7f',1,'ov::Vault']]],
+  ['is_5foffline_13',['is_offline',['../structov_1_1_account.html#a2c1f042d0dc6553f22ee4216f99356b9',1,'ov::Account::is_offline()'],['../structov_1_1_vault.html#a925f6fe88cbe894b0bd8988e85793b2a',1,'ov::Vault::is_offline()']]],
+  ['is_5fpaired_14',['is_paired',['../structov_1_1_restored_self_hosted.html#afc05f81121cd9935d84d45f7c8ec2538',1,'ov::RestoredSelfHosted']]],
+  ['is_5fread_5fonly_15',['is_read_only',['../structov_1_1_vault.html#acba937f583f33fd6fca4ac2cdeafa768',1,'ov::Vault']]],
+  ['is_5fsigned_5fin_16',['is_signed_in',['../structov_1_1_account.html#ab58f5e1c3059290f893c68a59a5ce90e',1,'ov::Account']]],
+  ['is_5funlocked_17',['is_unlocked',['../structov_1_1_account.html#a5975f3ac656300ad17c5fc90dc01973a',1,'ov::Account']]],
+  ['issue_5fservice_5faccount_5fsecret_18',['issue_service_account_secret',['../structov_1_1_account.html#a3295fb082590cf7ae2dd09038568df0e',1,'ov::Account']]],
+  ['issuer_19',['issuer',['../structov_1_1_service_account.html#acab349e060c463840dd3f34772aa18fd',1,'ov::ServiceAccount::issuer()'],['../structov_1_1_test_servers.html#a50e9619bb455719b53cd361c42864476',1,'ov::TestServers::issuer()']]],
+  ['item_5fshare_5fpayload_20',['item_share_payload',['../namespaceov.html#adc028134220ff0483dac70156a9fa90b',1,'ov']]]
+];

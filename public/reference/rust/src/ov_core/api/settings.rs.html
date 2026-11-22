@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/ov-core/src/api/settings.rs`."><title>settings.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-1ed95124.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="ov_core" data-themes="" data-resource-suffix="" data-rustdoc-version="1.98.1 (48a229cea 2026-09-01)" data-channel="1.98.1" data-search-js="search-9944d736.js" data-stringdex-js="stringdex-2da4960a.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../../../static.files/src-script-813739b1.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-417ebf0a.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc src"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">ov_core/api/</div>settings.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-3"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="doccomment">//! Account settings (SPEC §16), two-step sign-in (§8), devices, recovery (§18) and deletion (§23).
+<a href=#2 id=2 data-nosnippet>2</a>
+<a href=#3 id=3 data-nosnippet>3</a></span><span class="kw">use </span>ov_error::OvError;
+<a href=#4 id=4 data-nosnippet>4</a>
+<a href=#5 id=5 data-nosnippet>5</a><span class="kw">use super</span>::{
+<a href=#6 id=6 data-nosnippet>6</a>    Account, CancelToken, DeletionPreview, Device, KdfOverrides, NewAccount, Principal, Profile, RecoveryReset,
+<a href=#7 id=7 data-nosnippet>7</a>    RecoveryStatus, Rfc3339, SecretBytes, TotpSetup,
+<a href=#8 id=8 data-nosnippet>8</a>};
+<a href=#9 id=9 data-nosnippet>9</a>
+<a href=#10 id=10 data-nosnippet>10</a><span class="kw">impl </span>Account {
+<a href=#11 id=11 data-nosnippet>11</a>    <span class="comment">// ------------------------------------------------------------------------ profile (§16)
+<a href=#12 id=12 data-nosnippet>12</a>
+<a href=#13 id=13 data-nosnippet>13</a>    </span><span class="doccomment">/// `GET /me`: the signed-in user, plan and orgs, and (contract-v1.8) the KDF parameters and the
+<a href=#14 id=14 data-nosnippet>14</a>    /// keyset's public keys. Also refreshes the copy kept for offline unlock and follows an email
+<a href=#15 id=15 data-nosnippet>15</a>    /// change made on another device (Swift `me` and `refreshProfile`). Keys that don't verify are
+<a href=#16 id=16 data-nosnippet>16</a>    /// `invalid_public_keys`.
+<a href=#17 id=17 data-nosnippet>17</a>    </span><span class="kw">pub async fn </span>me(<span class="kw-2">&amp;</span><span class="self">self</span>, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;Profile, OvError&gt; {
+<a href=#18 id=18 data-nosnippet>18</a>        <span class="self">self</span>.me_impl(<span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#19 id=19 data-nosnippet>19</a>    </span>}
+<a href=#20 id=20 data-nosnippet>20</a>
+<a href=#21 id=21 data-nosnippet>21</a>    <span class="doccomment">/// Changes the master password (SPEC §16): checks the current one by unwrapping the keyset,
+<a href=#22 id=22 data-nosnippet>22</a>    /// registers OPAQUE again and wraps the same keyset with the new AUK, so vault keys keep
+<a href=#23 id=23 data-nosnippet>23</a>    /// working. The Secret Key stays. The server signs out the other devices. Returns the new AUK.
+<a href=#24 id=24 data-nosnippet>24</a>    </span><span class="kw">pub async fn </span>change_password(
+<a href=#25 id=25 data-nosnippet>25</a>        <span class="kw-2">&amp;</span><span class="self">self</span>,
+<a href=#26 id=26 data-nosnippet>26</a>        current: SecretBytes,
+<a href=#27 id=27 data-nosnippet>27</a>        next: SecretBytes,
+<a href=#28 id=28 data-nosnippet>28</a>        kdf: <span class="prelude-ty">Option</span>&lt;KdfOverrides&gt;,
+<a href=#29 id=29 data-nosnippet>29</a>        cancel: CancelToken,
+<a href=#30 id=30 data-nosnippet>30</a>    ) -&gt; <span class="prelude-ty">Result</span>&lt;SecretBytes, OvError&gt; {
+<a href=#31 id=31 data-nosnippet>31</a>        <span class="self">self</span>.change_password_impl(current, next, kdf, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#32 id=32 data-nosnippet>32</a>    </span>}
+<a href=#33 id=33 data-nosnippet>33</a>
+<a href=#34 id=34 data-nosnippet>34</a>    <span class="doccomment">/// Email change, step 1 (SPEC §16): the server mails an 8-digit code to the new address.
+<a href=#35 id=35 data-nosnippet>35</a>    </span><span class="kw">pub async fn </span>request_email_change(<span class="kw-2">&amp;</span><span class="self">self</span>, email: String, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;(), OvError&gt; {
+<a href=#36 id=36 data-nosnippet>36</a>        <span class="self">self</span>.request_email_change_impl(<span class="kw-2">&amp;</span>email, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#37 id=37 data-nosnippet>37</a>    </span>}
+<a href=#38 id=38 data-nosnippet>38</a>
+<a href=#39 id=39 data-nosnippet>39</a>    <span class="doccomment">/// Email change, step 2: with the mailed code and the master password (checked first), registers
+<a href=#40 id=40 data-nosnippet>40</a>    /// OPAQUE again under the new email. Keys, Secret Key and vaults stay as they are; what this
+<a href=#41 id=41 data-nosnippet>41</a>    /// device keeps under the old email moves to the new one.
+<a href=#42 id=42 data-nosnippet>42</a>    </span><span class="kw">pub async fn </span>change_email(
+<a href=#43 id=43 data-nosnippet>43</a>        <span class="kw-2">&amp;</span><span class="self">self</span>,
+<a href=#44 id=44 data-nosnippet>44</a>        email: String,
+<a href=#45 id=45 data-nosnippet>45</a>        code: String,
+<a href=#46 id=46 data-nosnippet>46</a>        password: SecretBytes,
+<a href=#47 id=47 data-nosnippet>47</a>        cancel: CancelToken,
+<a href=#48 id=48 data-nosnippet>48</a>    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), OvError&gt; {
+<a href=#49 id=49 data-nosnippet>49</a>        <span class="self">self</span>.change_email_impl(<span class="kw-2">&amp;</span>email, <span class="kw-2">&amp;</span>code, password, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#50 id=50 data-nosnippet>50</a>    </span>}
+<a href=#51 id=51 data-nosnippet>51</a>
+<a href=#52 id=52 data-nosnippet>52</a>    <span class="doccomment">/// The Secret Key kept on this device, to show the Emergency Kit again (SPEC §2). Needs the
+<a href=#53 id=53 data-nosnippet>53</a>    /// account unlocked (`signed_out` otherwise).
+<a href=#54 id=54 data-nosnippet>54</a>    </span><span class="kw">pub async fn </span>secret_key(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;SecretBytes&gt;, OvError&gt; {
+<a href=#55 id=55 data-nosnippet>55</a>        <span class="self">self</span>.secret_key_impl().<span class="kw">await
+<a href=#56 id=56 data-nosnippet>56</a>    </span>}
+<a href=#57 id=57 data-nosnippet>57</a>
+<a href=#58 id=58 data-nosnippet>58</a>    <span class="doccomment">/// A one-time link (valid 60 seconds) that signs the browser in to the auth website and opens
+<a href=#59 id=59 data-nosnippet>59</a>    /// `next`, a path there such as `/settings` (SPEC §16).
+<a href=#60 id=60 data-nosnippet>60</a>    </span><span class="kw">pub async fn </span>web_session_url(<span class="kw-2">&amp;</span><span class="self">self</span>, next: <span class="prelude-ty">Option</span>&lt;String&gt;, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;SecretBytes, OvError&gt; {
+<a href=#61 id=61 data-nosnippet>61</a>        <span class="self">self</span>.web_session_impl(next, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#62 id=62 data-nosnippet>62</a>    </span>}
+<a href=#63 id=63 data-nosnippet>63</a>
+<a href=#64 id=64 data-nosnippet>64</a>    <span class="comment">// ------------------------------------------------------------------- two-step (§8)
+<a href=#65 id=65 data-nosnippet>65</a>
+<a href=#66 id=66 data-nosnippet>66</a>    </span><span class="doccomment">/// Starts TOTP enrolment: a new secret and `otpauth://` URI to show as a QR code.
+<a href=#67 id=67 data-nosnippet>67</a>    </span><span class="kw">pub async fn </span>start_two_step(<span class="kw-2">&amp;</span><span class="self">self</span>, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;TotpSetup, OvError&gt; {
+<a href=#68 id=68 data-nosnippet>68</a>        <span class="kw">let </span>e = <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_totp_start(t), ov_protocol::auth::parse_totp_start).<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#69 id=69 data-nosnippet>69</a>        <span class="prelude-val">Ok</span>(TotpSetup { secret: e.secret.into_bytes(), uri: e.otpauth_uri.into_bytes() })
+<a href=#70 id=70 data-nosnippet>70</a>    }
+<a href=#71 id=71 data-nosnippet>71</a>
+<a href=#72 id=72 data-nosnippet>72</a>    <span class="doccomment">/// Turns two-step sign-in on with a code from the authenticator.
+<a href=#73 id=73 data-nosnippet>73</a>    </span><span class="kw">pub async fn </span>confirm_two_step(<span class="kw-2">&amp;</span><span class="self">self</span>, code: String, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;(), OvError&gt; {
+<a href=#74 id=74 data-nosnippet>74</a>        <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_totp_confirm(t, code.trim()), ov_protocol::parse_empty).<span class="kw">await
+<a href=#75 id=75 data-nosnippet>75</a>    </span>}
+<a href=#76 id=76 data-nosnippet>76</a>
+<a href=#77 id=77 data-nosnippet>77</a>    <span class="doccomment">/// Turns two-step sign-in off (needs a current code).
+<a href=#78 id=78 data-nosnippet>78</a>    </span><span class="kw">pub async fn </span>disable_two_step(<span class="kw-2">&amp;</span><span class="self">self</span>, code: String, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;(), OvError&gt; {
+<a href=#79 id=79 data-nosnippet>79</a>        <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_totp_disable(t, code.trim()), ov_protocol::parse_empty).<span class="kw">await
+<a href=#80 id=80 data-nosnippet>80</a>    </span>}
+<a href=#81 id=81 data-nosnippet>81</a>
+<a href=#82 id=82 data-nosnippet>82</a>    <span class="comment">// ---------------------------------------------------------------------------- devices
+<a href=#83 id=83 data-nosnippet>83</a>
+<a href=#84 id=84 data-nosnippet>84</a>    </span><span class="doccomment">/// Devices signed in to the account.
+<a href=#85 id=85 data-nosnippet>85</a>    </span><span class="kw">pub async fn </span>devices(<span class="kw-2">&amp;</span><span class="self">self</span>, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;Device&gt;, OvError&gt; {
+<a href=#86 id=86 data-nosnippet>86</a>        <span class="kw">let </span>l = <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_list_devices(t), ov_protocol::auth::parse_devices).<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#87 id=87 data-nosnippet>87</a>        <span class="prelude-val">Ok</span>(l.devices.iter().map(<span class="kw">crate</span>::impls::convert::device).collect())
+<a href=#88 id=88 data-nosnippet>88</a>    }
+<a href=#89 id=89 data-nosnippet>89</a>
+<a href=#90 id=90 data-nosnippet>90</a>    <span class="doccomment">/// Signs a device out (revokes its session).
+<a href=#91 id=91 data-nosnippet>91</a>    </span><span class="kw">pub async fn </span>revoke_device(<span class="kw-2">&amp;</span><span class="self">self</span>, device_id: String, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;(), OvError&gt; {
+<a href=#92 id=92 data-nosnippet>92</a>        <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_revoke_device(t, <span class="kw-2">&amp;</span>device_id), ov_protocol::parse_empty).<span class="kw">await
+<a href=#93 id=93 data-nosnippet>93</a>    </span>}
+<a href=#94 id=94 data-nosnippet>94</a>
+<a href=#95 id=95 data-nosnippet>95</a>    <span class="comment">// --------------------------------------------------------------------- recovery (§18)
+<a href=#96 id=96 data-nosnippet>96</a>
+<a href=#97 id=97 data-nosnippet>97</a>    </span><span class="doccomment">/// What an approved reset will do, for the recovery page. Works signed out.
+<a href=#98 id=98 data-nosnippet>98</a>    /// `recovery_not_ready` (409, `details.notBefore`) before the link works, `recovery_cancelled`
+<a href=#99 id=99 data-nosnippet>99</a>    /// (410) after a cancel, `session_expired` (410) once used or expired.
+<a href=#100 id=100 data-nosnippet>100</a>    </span><span class="kw">pub async fn </span>recover_info(<span class="kw-2">&amp;</span><span class="self">self</span>, token: SecretBytes, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;RecoveryReset, OvError&gt; {
+<a href=#101 id=101 data-nosnippet>101</a>        <span class="kw">let </span>token = <span class="kw">crate</span>::impls::util::secret_text(token, <span class="string">"reset token"</span>)<span class="question-mark">?</span>;
+<a href=#102 id=102 data-nosnippet>102</a>        <span class="self">self</span>.recover_info_impl(<span class="kw-2">&amp;</span>token, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#103 id=103 data-nosnippet>103</a>    </span>}
+<a href=#104 id=104 data-nosnippet>104</a>
+<a href=#105 id=105 data-nosnippet>105</a>    <span class="doccomment">/// Resets the account with an approved `ov_rc_` token (SPEC §18): a new Secret Key, KDF salt and
+<a href=#106 id=106 data-nosnippet>106</a>    /// keyset as [`register`](Self::register) makes them, a new OPAQUE record, and the old keys and
+<a href=#107 id=107 data-nosnippet>107</a>    /// vaults archived for 30 days. This device ends up signed in and unlocked; every other device
+<a href=#108 id=108 data-nosnippet>108</a>    /// is signed out. Show the new Secret Key once. Errors as [`recover_info`](Self::recover_info).
+<a href=#109 id=109 data-nosnippet>109</a>    </span><span class="kw">pub async fn </span>recover(
+<a href=#110 id=110 data-nosnippet>110</a>        <span class="kw-2">&amp;</span><span class="self">self</span>,
+<a href=#111 id=111 data-nosnippet>111</a>        token: SecretBytes,
+<a href=#112 id=112 data-nosnippet>112</a>        password: SecretBytes,
+<a href=#113 id=113 data-nosnippet>113</a>        kdf: <span class="prelude-ty">Option</span>&lt;KdfOverrides&gt;,
+<a href=#114 id=114 data-nosnippet>114</a>        trust_device: bool,
+<a href=#115 id=115 data-nosnippet>115</a>        cancel: CancelToken,
+<a href=#116 id=116 data-nosnippet>116</a>    ) -&gt; <span class="prelude-ty">Result</span>&lt;NewAccount, OvError&gt; {
+<a href=#117 id=117 data-nosnippet>117</a>        <span class="self">self</span>.recover_impl(token, password, kdf, trust_device, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#118 id=118 data-nosnippet>118</a>    </span>}
+<a href=#119 id=119 data-nosnippet>119</a>
+<a href=#120 id=120 data-nosnippet>120</a>    <span class="doccomment">/// Whether a recovery archive exists, until when, and whether it is locked (SPEC §18).
+<a href=#121 id=121 data-nosnippet>121</a>    </span><span class="kw">pub async fn </span>recovery_status(<span class="kw-2">&amp;</span><span class="self">self</span>, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;RecoveryStatus, OvError&gt; {
+<a href=#122 id=122 data-nosnippet>122</a>        <span class="kw">let </span>r = <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_recovery_status(t), ov_protocol::auth::parse_recovery_status).<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#123 id=123 data-nosnippet>123</a>        <span class="prelude-val">Ok</span>(<span class="kw">crate</span>::impls::convert::recovery_status(<span class="kw-2">&amp;</span>r))
+<a href=#124 id=124 data-nosnippet>124</a>    }
+<a href=#125 id=125 data-nosnippet>125</a>
+<a href=#126 id=126 data-nosnippet>126</a>    <span class="doccomment">/// Restores the vaults archived by a reset into the current keys (SPEC §18) with the old master
+<a href=#127 id=127 data-nosnippet>127</a>    /// password and old Secret Key. Needs the account unlocked. Returns how many grants were
+<a href=#128 id=128 data-nosnippet>128</a>    /// restored. `unauthorized` for a wrong old password; `invalid_secret_key` (before anything is
+<a href=#129 id=129 data-nosnippet>129</a>    /// restored) when the old Secret Key doesn't open the archived keyset; `restore_locked`,
+<a href=#130 id=130 data-nosnippet>130</a>    /// `invalid_proof`, `session_expired`, `not_found` from the server.
+<a href=#131 id=131 data-nosnippet>131</a>    </span><span class="kw">pub async fn </span>restore_from_archive(
+<a href=#132 id=132 data-nosnippet>132</a>        <span class="kw-2">&amp;</span><span class="self">self</span>,
+<a href=#133 id=133 data-nosnippet>133</a>        old_password: SecretBytes,
+<a href=#134 id=134 data-nosnippet>134</a>        old_secret_key: SecretBytes,
+<a href=#135 id=135 data-nosnippet>135</a>        cancel: CancelToken,
+<a href=#136 id=136 data-nosnippet>136</a>    ) -&gt; <span class="prelude-ty">Result</span>&lt;u32, OvError&gt; {
+<a href=#137 id=137 data-nosnippet>137</a>        <span class="self">self</span>.restore_from_archive_impl(old_password, old_secret_key, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#138 id=138 data-nosnippet>138</a>    </span>}
+<a href=#139 id=139 data-nosnippet>139</a>
+<a href=#140 id=140 data-nosnippet>140</a>    <span class="comment">// --------------------------------------------------------------------- deletion (§23)
+<a href=#141 id=141 data-nosnippet>141</a>
+<a href=#142 id=142 data-nosnippet>142</a>    </span><span class="doccomment">/// What deleting this account will do. Vault names are decrypted when the vault list can be read.
+<a href=#143 id=143 data-nosnippet>143</a>    </span><span class="kw">pub async fn </span>deletion_preview(<span class="kw-2">&amp;</span><span class="self">self</span>, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;DeletionPreview, OvError&gt; {
+<a href=#144 id=144 data-nosnippet>144</a>        <span class="self">self</span>.deletion_preview_impl(<span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#145 id=145 data-nosnippet>145</a>    </span>}
+<a href=#146 id=146 data-nosnippet>146</a>
+<a href=#147 id=147 data-nosnippet>147</a>    <span class="doccomment">/// Schedules this account's deletion (SPEC §23): checks the master password, then the server
+<a href=#148 id=148 data-nosnippet>148</a>    /// locks the account and erases it on the returned date. `confirm` is the email as the user
+<a href=#149 id=149 data-nosnippet>149</a>    /// typed it. This device is signed out and its offline cache deleted; the Secret Key stays so the
+<a href=#150 id=150 data-nosnippet>150</a>    /// user can still restore. A 409 `deletion_blocked` lists the orgs to hand over first, in
+<a href=#151 id=151 data-nosnippet>151</a>    /// `details` as `{"orgs": [{"id", "name"}, ...]}` (contract-v1.8). While an account is pending
+<a href=#152 id=152 data-nosnippet>152</a>    /// deletion, any other call the server refuses is 403 `account_pending_deletion` with `details`
+<a href=#153 id=153 data-nosnippet>153</a>    /// `{"scheduledFor": "&lt;RFC 3339&gt;"}` (contract-v1.8); restore it with
+<a href=#154 id=154 data-nosnippet>154</a>    /// [`restore_account`](Self::restore_account).
+<a href=#155 id=155 data-nosnippet>155</a>    </span><span class="kw">pub async fn </span>delete_account(
+<a href=#156 id=156 data-nosnippet>156</a>        <span class="kw-2">&amp;</span><span class="self">self</span>,
+<a href=#157 id=157 data-nosnippet>157</a>        password: SecretBytes,
+<a href=#158 id=158 data-nosnippet>158</a>        confirm: String,
+<a href=#159 id=159 data-nosnippet>159</a>        cancel: CancelToken,
+<a href=#160 id=160 data-nosnippet>160</a>    ) -&gt; <span class="prelude-ty">Result</span>&lt;Rfc3339, OvError&gt; {
+<a href=#161 id=161 data-nosnippet>161</a>        <span class="self">self</span>.delete_account_impl(password, <span class="kw-2">&amp;</span>confirm, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#162 id=162 data-nosnippet>162</a>    </span>}
+<a href=#163 id=163 data-nosnippet>163</a>
+<a href=#164 id=164 data-nosnippet>164</a>    <span class="doccomment">/// Restores this account while it is pending deletion, after signing in to it (SPEC §23).
+<a href=#165 id=165 data-nosnippet>165</a>    </span><span class="kw">pub async fn </span>restore_account(<span class="kw-2">&amp;</span><span class="self">self</span>, password: SecretBytes, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;(), OvError&gt; {
+<a href=#166 id=166 data-nosnippet>166</a>        <span class="self">self</span>.restore_account_impl(password, <span class="kw-2">&amp;</span>cancel).<span class="kw">await
+<a href=#167 id=167 data-nosnippet>167</a>    </span>}
+<a href=#168 id=168 data-nosnippet>168</a>
+<a href=#169 id=169 data-nosnippet>169</a>    <span class="doccomment">/// Gives a personal vault to someone who already has access (SPEC §23). They become its owner
+<a href=#170 id=170 data-nosnippet>170</a>    /// with `manage`, this account loses access, and the new owner should rotate the key.
+<a href=#171 id=171 data-nosnippet>171</a>    </span><span class="kw">pub async fn </span>transfer_vault(<span class="kw-2">&amp;</span><span class="self">self</span>, vault_id: String, to: Principal, cancel: CancelToken) -&gt; <span class="prelude-ty">Result</span>&lt;(), OvError&gt; {
+<a href=#172 id=172 data-nosnippet>172</a>        <span class="self">self</span>.call(<span class="kw-2">&amp;</span>cancel, |a, t| a.build_transfer_vault(t, <span class="kw-2">&amp;</span>vault_id, <span class="kw-2">&amp;</span>to), ov_protocol::auth::parse_vault).<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#173 id=173 data-nosnippet>173</a>        <span class="self">self</span>.refresh_token(<span class="kw-2">&amp;</span>cancel).<span class="kw">await</span><span class="question-mark">?</span>;
+<a href=#174 id=174 data-nosnippet>174</a>        <span class="self">self</span>.load_vault_list(<span class="kw-2">&amp;</span>cancel).<span class="kw">await</span>.map(|<span class="kw">_</span>| ())
+<a href=#175 id=175 data-nosnippet>175</a>    }
+<a href=#176 id=176 data-nosnippet>176</a>}
+</code></pre></div></section></main></body></html>

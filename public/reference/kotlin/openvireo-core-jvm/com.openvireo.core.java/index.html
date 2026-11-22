@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.openvireo.core.java</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+        <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer="defer"></script>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+            <a class="library-name--link" href="../../index.html" tabindex="1">
+                    openvireo-core-jvm
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+b56056f2e6c8        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true"
+                        data-filter=":core-jvm/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":core-jvm/main"
+                                       data-filter=":core-jvm/main"/>
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+                <a class="navigation-controls--btn navigation-controls--btn_homepage" id="homepage-link"
+                   href="https://developer.openvireo.com/bindings/kotlin-java/"></a>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config='{"defaultSize": 280, "minSize": 200, "maxSize": 400}'>
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                    data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    openvireo-core-jvm
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="openvireo-core-jvm::com.openvireo.core.java////PointingToDeclaration//-662999309">
+  <div class="breadcrumbs"><a href="../../index.html">openvireo-core-jvm</a><span class="delimiter">/</span><span class="current">com.openvireo.core.java</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><p class="paragraph">The API for Java, without coroutines: <code class="lang-kotlin">J&lt;Object&gt;</code> wrappers (<code class="lang-kotlin">JOvClient</code>, <code class="lang-kotlin">JAccount</code>, <code class="lang-kotlin">JVault</code>, ...) whose <code class="lang-kotlin">suspend</code> methods return <code class="lang-kotlin">CompletableFuture</code>, <code class="lang-kotlin">JOv</code> (every free function as a static), <code class="lang-kotlin">JRecords</code> (records with unsigned fields), <code class="lang-kotlin">JErrors</code>, and the future-based Host interfaces with <code class="lang-kotlin">JHosts</code> and <code class="lang-kotlin">JDefaultHosts</code>. Generated from the binding on every build, so it can't drift from it.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-1692350860%2FClasslikes%2F-662999309" anchor-label="JAccount" id="-1692350860%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-account/index.html"><span><span>JAccount</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1692350860%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-account/index.html">JAccount</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../com.openvireo.core/-account/index.html">Account</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><div class="brief "><p class="paragraph">The Java facade of <a href="../com.openvireo.core/-account/index.html">com.openvireo.core.Account</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JAccount/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="-j-account/unwrap.html">unwrap</a> gives the generated object; <a href="-j-account/close.html">close</a> frees it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-294719044%2FClasslikes%2F-662999309" anchor-label="JBlobCache" id="-294719044%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-blob-cache/index.html"><span>JBlob</span><wbr></wbr><span><span>Cache</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-294719044%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-j-blob-cache/index.html">JBlobCache</a></div><div class="brief "><p class="paragraph">The offline cache (ciphertext and public data only), per user and vault; see <code class="lang-kotlin">ov_core::host::BlobCache</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="121257145%2FClasslikes%2F-662999309" anchor-label="JByteStream" id="121257145%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-byte-stream/index.html"><span>JByte</span><wbr></wbr><span><span>Stream</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="121257145%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-j-byte-stream/index.html">JByteStream</a></div><div class="brief "><p class="paragraph">The body of an open stream, read chunk by chunk.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1326964841%2FClasslikes%2F-662999309" anchor-label="JDefaultHosts" id="-1326964841%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-default-hosts/index.html"><span>JDefault</span><wbr></wbr><span><span>Hosts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1326964841%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-j-default-hosts/index.html">JDefaultHosts</a></div><div class="brief "><p class="paragraph">The JVM's default Host parts for Java (the same as Kotlin's <code class="lang-kotlin">defaultHost</code>): <code class="lang-kotlin">JavaNetHttpTransport</code>, a <code class="lang-kotlin">MemoryStore</code> (a new device every run: set a persistent store to keep sessions), a <code class="lang-kotlin">FileCache</code> under a directory or a <code class="lang-kotlin">MemoryCache</code>, <code class="lang-kotlin">SystemClock</code> and <code class="lang-kotlin">JulLogSink</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2035585706%2FClasslikes%2F-662999309" anchor-label="JErrors" id="-2035585706%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-errors/index.html"><span><span>JErrors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2035585706%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-j-errors/index.html">JErrors</a></div><div class="brief "><p class="paragraph">Reads an <a href="../com.openvireo.core/-ov-exception/index.html">OvException</a>'s fields from Java, from the exception itself or from what a facade future failed with (<code class="lang-kotlin">CompletionException</code> from <code class="lang-kotlin">join()</code>, <code class="lang-kotlin">ExecutionException</code> from <code class="lang-kotlin">get()</code>):</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-635314553%2FClasslikes%2F-662999309" anchor-label="JEventStream" id="-635314553%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-event-stream/index.html"><span>JEvent</span><wbr></wbr><span><span>Stream</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-635314553%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-event-stream/index.html">JEventStream</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../com.openvireo.core/-event-stream/index.html">EventStream</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><div class="brief "><p class="paragraph">The Java facade of <a href="../com.openvireo.core/-event-stream/index.html">com.openvireo.core.EventStream</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JEventStream/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="-j-event-stream/unwrap.html">unwrap</a> gives the generated object; <a href="-j-event-stream/close.html">close</a> frees it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-294997354%2FClasslikes%2F-662999309" anchor-label="JHosts" id="-294997354%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-hosts/index.html"><span><span>JHosts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-294997354%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-j-hosts/index.html">JHosts</a></div><div class="brief "><p class="paragraph">Builds a <a href="../com.openvireo.core/-host/index.html">Host</a> from Java, and adapts between the Java Host interfaces and the generated (<code class="lang-kotlin">suspend</code>) ones. Each part of a Host is either a Java one (<a href="-j-http-transport/index.html">JHttpTransport</a>, <a href="-j-secure-store/index.html">JSecureStore</a>, <a href="-j-blob-cache/index.html">JBlobCache</a>) or a shipped or Kotlin one (<code class="lang-kotlin">JavaNetHttpTransport</code>, <code class="lang-kotlin">MemoryStore</code>, <code class="lang-kotlin">FileCache</code>, ...). <code class="lang-kotlin">JDefaultHosts.builder()</code> starts with the platform's defaults filled in.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="350980504%2FClasslikes%2F-662999309" anchor-label="JHttpResponse" id="350980504%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-http-response/index.html"><span>JHttp</span><wbr></wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="350980504%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-http-response/index.html">JHttpResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>status<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>headers<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../com.openvireo.core/-http-header/index.html">HttpHeader</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>body<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">An HTTP response for <a href="-j-http-transport/send.html">JHttpTransport.send</a>: the status (<code class="lang-kotlin">100..=599</code>), the headers in order, the body.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="565408672%2FClasslikes%2F-662999309" anchor-label="JHttpTransport" id="565408672%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-http-transport/index.html"><span>JHttp</span><wbr></wbr><span><span>Transport</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="565408672%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-j-http-transport/index.html">JHttpTransport</a></div><div class="brief "><p class="paragraph">HTTP, as <code class="lang-kotlin">ov_core::host::HttpTransport</code> needs it. <strong>Never follow redirects</strong> (a 3xx is a response) and <strong>never add cookies</strong>. Any status is a response: complete with it, not exceptionally. Complete exceptionally with a <a href="../com.openvireo.core/-transport-exception/index.html">TransportException</a> (<code class="lang-kotlin">Offline</code>, <code class="lang-kotlin">Timeout</code>, <code class="lang-kotlin">Tls</code>, <code class="lang-kotlin">Cancelled</code>, <code class="lang-kotlin">Other</code>); any other exception is mapped (<code class="lang-kotlin">ConnectException</code>/<code class="lang-kotlin">UnknownHostException</code> → <code class="lang-kotlin">Offline</code>, a <code class="lang-kotlin">SocketTimeoutException</code> → <code class="lang-kotlin">Timeout</code>, an <code class="lang-kotlin">SSLException</code> → <code class="lang-kotlin">Tls</code>, else <code class="lang-kotlin">Other</code>). The core may cancel the returned future when the call it belongs to is cancelled.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1970170458%2FClasslikes%2F-662999309" anchor-label="JOv" id="1970170458%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-ov/index.html"><span><span>JOv</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1970170458%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-j-ov/index.html">JOv</a></div><div class="brief "><p class="paragraph">The free functions of <code class="lang-kotlin">com.openvireo.core</code> (crypto primitives, share links, TOTP, OPAQUE, …) as static methods. <code class="lang-kotlin">suspend</code> ones return a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> on <a href="-j-scope/default-scope.html">JScope.defaultScope</a> (or on the scope of the first wrapper passed in).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1698641423%2FClasslikes%2F-662999309" anchor-label="JOvClient" id="1698641423%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-ov-client/index.html"><span>JOv</span><wbr></wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1698641423%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-ov-client/index.html">JOvClient</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../com.openvireo.core/-ov-client/index.html">OvClient</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><div class="brief "><p class="paragraph">The Java facade of <a href="../com.openvireo.core/-ov-client/index.html">com.openvireo.core.OvClient</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JOvClient/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="-j-ov-client/unwrap.html">unwrap</a> gives the generated object; <a href="-j-ov-client/close.html">close</a> frees it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1095793665%2FClasslikes%2F-662999309" anchor-label="JRecords" id="-1095793665%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-records/index.html"><span><span>JRecords</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1095793665%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-j-records/index.html">JRecords</a></div><div class="brief "><p class="paragraph">Kotlin hides constructors and getters with unsigned types from Java. For each record and enum variant with an unsigned field, this has a <code class="lang-kotlin">new&lt;Record&gt;(…)</code> factory (unsigned → the next wider signed type, range-checked) and a <code class="lang-kotlin">get&lt;Field&gt;(record)</code> getter for each unsigned field. Every other field reads as usual (<code class="lang-kotlin">record.getName()</code>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1135374381%2FClasslikes%2F-662999309" anchor-label="JScope" id="1135374381%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-scope/index.html"><span><span>JScope</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1135374381%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-j-scope/index.html">JScope</a></div><div class="brief "><p class="paragraph">The coroutine scopes the Java facade's futures run on. Every <code class="lang-kotlin">J</code> wrapper takes one (its constructors also take an <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executor.html">Executor</a>); the default is <a href="-j-scope/default-scope.html">defaultScope</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="603316119%2FClasslikes%2F-662999309" anchor-label="JSecureStore" id="603316119%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-secure-store/index.html"><span>JSecure</span><wbr></wbr><span><span>Store</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="603316119%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-j-secure-store/index.html">JSecureStore</a></div><div class="brief "><p class="paragraph">Secrets that persist (the OS keychain, for example); keys are chosen by the core. Complete exceptionally with an <code class="lang-kotlin">OvException</code> (<a href="-j-errors/ov-exception.html">JErrors.ovException</a>) when the store can't be read: that is not the same as a missing key (<code class="lang-kotlin">null</code>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-546981106%2FClasslikes%2F-662999309" anchor-label="JSelfHosted" id="-546981106%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-self-hosted/index.html"><span>JSelf</span><wbr></wbr><span><span>Hosted</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-546981106%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-self-hosted/index.html">JSelfHosted</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../com.openvireo.core/-self-hosted/index.html">SelfHosted</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><div class="brief "><p class="paragraph">The Java facade of <a href="../com.openvireo.core/-self-hosted/index.html">com.openvireo.core.SelfHosted</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JSelfHosted/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="-j-self-hosted/unwrap.html">unwrap</a> gives the generated object; <a href="-j-self-hosted/close.html">close</a> frees it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1742202967%2FClasslikes%2F-662999309" anchor-label="JServiceAccount" id="-1742202967%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-service-account/index.html"><span>JService</span><wbr></wbr><span><span>Account</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1742202967%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-service-account/index.html">JServiceAccount</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../com.openvireo.core/-service-account/index.html">ServiceAccount</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><div class="brief "><p class="paragraph">The Java facade of <a href="../com.openvireo.core/-service-account/index.html">com.openvireo.core.ServiceAccount</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JServiceAccount/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="-j-service-account/unwrap.html">unwrap</a> gives the generated object; <a href="-j-service-account/close.html">close</a> frees it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-574580331%2FClasslikes%2F-662999309" anchor-label="JTotpChallenge" id="-574580331%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-totp-challenge/index.html"><span>JTotp</span><wbr></wbr><span><span>Challenge</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-574580331%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-totp-challenge/index.html">JTotpChallenge</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../com.openvireo.core/-totp-challenge/index.html">TotpChallenge</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><div class="brief "><p class="paragraph">The Java facade of <a href="../com.openvireo.core/-totp-challenge/index.html">com.openvireo.core.TotpChallenge</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JTotpChallenge/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="-j-totp-challenge/unwrap.html">unwrap</a> gives the generated object; <a href="-j-totp-challenge/close.html">close</a> frees it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-831491569%2FClasslikes%2F-662999309" anchor-label="JVault" id="-831491569%2FClasslikes%2F-662999309" data-filterable-set=":core-jvm/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":core-jvm/main" data-filterable-set=":core-jvm/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-j-vault/index.html"><span><span>JVault</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-831491569%2FClasslikes%2F-662999309"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core-jvm/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-j-vault/index.html">JVault</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inner<span class="token operator">: </span><a href="../com.openvireo.core/-vault/index.html">Vault</a><span class="token punctuation">, </span></span><span class="parameter ">scope<span class="token operator">: </span><a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/index.html">CoroutineScope</a><span class="token operator"> = </span>JScope.defaultScope()</span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/AutoCloseable.html">AutoCloseable</a></div><div class="brief "><p class="paragraph">The Java facade of <a href="../com.openvireo.core/-vault/index.html">com.openvireo.core.Vault</a>: every <code class="lang-kotlin">suspend</code> method returns a <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a> that runs on <span data-unresolved-link="com.openvireo.core.java/JVault/scope/#/PointingToDeclaration/">scope</span> (cancelling the future cancels the call), objects come back as <code class="lang-kotlin">J</code> wrappers on the same scope, and unsigned numbers are the next wider signed type. <a href="-j-vault/unwrap.html">unwrap</a> gives the generated object; <a href="-j-vault/close.html">close</a> frees it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>OpenVireo core, <a href="https://github.com/openvireo/openvireo-core/tree/b56056f2e6c81d984c72ef8f3aae3f0a42fc8c43">b56056f2e6c8</a> &middot; <a href="https://developer.openvireo.com/bindings/kotlin-java/">Kotlin and Java guide</a> &middot; <a href="/reference/java/">Java reference</a> &middot; MIT OR Apache-2.0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

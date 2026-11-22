@@ -14,13 +14,14 @@ var searchData=
   ['shareablefield_11',['ShareableField',['../structov_1_1_shareable_field.html',1,'ov']]],
   ['sharefield_12',['ShareField',['../structov_1_1_share_field.html',1,'ov']]],
   ['shareinfo_13',['ShareInfo',['../structov_1_1_share_info.html',1,'ov']]],
-  ['sharelisting_14',['ShareListing',['../structov_1_1_share_listing.html',1,'ov']]],
-  ['shareoptions_15',['ShareOptions',['../structov_1_1_share_options.html',1,'ov']]],
-  ['sharepayload_16',['SharePayload',['../structov_1_1_share_payload.html',1,'ov']]],
-  ['sharerecipient_17',['ShareRecipient',['../structov_1_1_share_recipient.html',1,'ov']]],
-  ['shareref_18',['ShareRef',['../structov_1_1_share_ref.html',1,'ov']]],
-  ['storedsession_19',['StoredSession',['../structov_1_1_stored_session.html',1,'ov']]],
-  ['syncconflict_20',['SyncConflict',['../structov_1_1_sync_conflict.html',1,'ov']]],
-  ['syncoptions_21',['SyncOptions',['../structov_1_1_sync_options.html',1,'ov']]],
-  ['syncreport_22',['SyncReport',['../structov_1_1_sync_report.html',1,'ov']]]
+  ['sharelinkparts_14',['ShareLinkParts',['../structov_1_1_share_link_parts.html',1,'ov']]],
+  ['sharelisting_15',['ShareListing',['../structov_1_1_share_listing.html',1,'ov']]],
+  ['shareoptions_16',['ShareOptions',['../structov_1_1_share_options.html',1,'ov']]],
+  ['sharepayload_17',['SharePayload',['../structov_1_1_share_payload.html',1,'ov']]],
+  ['sharerecipient_18',['ShareRecipient',['../structov_1_1_share_recipient.html',1,'ov']]],
+  ['shareref_19',['ShareRef',['../structov_1_1_share_ref.html',1,'ov']]],
+  ['storedsession_20',['StoredSession',['../structov_1_1_stored_session.html',1,'ov']]],
+  ['syncconflict_21',['SyncConflict',['../structov_1_1_sync_conflict.html',1,'ov']]],
+  ['syncoptions_22',['SyncOptions',['../structov_1_1_sync_options.html',1,'ov']]],
+  ['syncreport_23',['SyncReport',['../structov_1_1_sync_report.html',1,'ov']]]
 ];

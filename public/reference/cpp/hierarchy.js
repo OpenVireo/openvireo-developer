@@ -125,6 +125,7 @@ var hierarchy =
     [ "ov::ShareableField", "structov_1_1_shareable_field.html", null ],
     [ "ov::ShareField", "structov_1_1_share_field.html", null ],
     [ "ov::ShareInfo", "structov_1_1_share_info.html", null ],
+    [ "ov::ShareLinkParts", "structov_1_1_share_link_parts.html", null ],
     [ "ov::ShareListing", "structov_1_1_share_listing.html", null ],
     [ "ov::ShareOptions", "structov_1_1_share_options.html", null ],
     [ "ov::SharePayload", "structov_1_1_share_payload.html", null ],

@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">OpenVireo core for C++<span id="projectnumber">&#160;origin/develop @ b56056f2e6</span>
+   <div id="projectname">OpenVireo core for C++<span id="projectnumber">&#160;1.0.0</span>
    </div>
    <div id="projectbrief">ov-ffi-cpp: the C++17 binding of openvireo-core</div>
   </td>
@@ -284,6 +284,8 @@ Classes</h2></td></tr>
 <tr class="memitem:ShareableField" id="r_ShareableField"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structov_1_1_shareable_field.html">ShareableField</a></td></tr>
 <tr class="memitem:ShareField" id="r_ShareField"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structov_1_1_share_field.html">ShareField</a></td></tr>
 <tr class="memitem:ShareInfo" id="r_ShareInfo"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structov_1_1_share_info.html">ShareInfo</a></td></tr>
+<tr class="memitem:ShareLinkParts" id="r_ShareLinkParts"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structov_1_1_share_link_parts.html">ShareLinkParts</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parsed share link, <span class="tt">&lt;<a class="el" href="structov_1_1_share_link_parts.html#a2c529a728c9546231bc0ed6a34f44ec7" title="Everything before /&lt;id&gt;.">base</a>&gt;/&lt;<a class="el" href="structov_1_1_share_link_parts.html#acc0e933ed2976c8aa2f52400ddd2efbc" title="The share id (22 characters), for Client::share_info.">id</a>&gt;#&lt;<a class="el" href="structov_1_1_share_link_parts.html#a6aa3b930bdbd83fc39a7530fc51f8bea" title="The link key K (32 bytes).">key</a>&gt;</span>. <span class="tt"><a class="el" href="structov_1_1_share_link_parts.html#a6aa3b930bdbd83fc39a7530fc51f8bea" title="The link key K (32 bytes).">key</a></span> is the secret link key: wipe it (<a class="el" href="#abbe97baea84bd19017ba53e4cade590e" title="Wipes a byte buffer the core returned (secrets cross as bytes; the caller wipes them).">ov::wipe</a>).  <a href="structov_1_1_share_link_parts.html#details">More...</a><br /></td></tr>
 <tr class="memitem:ShareListing" id="r_ShareListing"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structov_1_1_share_listing.html">ShareListing</a></td></tr>
 <tr class="memitem:ShareOptions" id="r_ShareOptions"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structov_1_1_share_options.html">ShareOptions</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rust <span class="tt"><a class="el" href="structov_1_1_share_options.html" title="Rust ShareOptions; empty vault_id / entry_id are None (text shares).">ShareOptions</a></span>; empty <span class="tt"><a class="el" href="structov_1_1_share_options.html#a3926ed192a2aa4abd7b348009ceb82ae">vault_id</a></span> / <span class="tt"><a class="el" href="structov_1_1_share_options.html#aba924413dcefbe1f796402b06a9e81d9">entry_id</a></span> are <span class="tt">None</span> (text shares).  <a href="structov_1_1_share_options.html#details">More...</a><br /></td></tr>
@@ -637,6 +639,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ada36b712b57b511137e3e9f7d29e026d" id="r_ada36b712b57b511137e3e9f7d29e026d"><td class="memItemLeft"><a class="el" href="structov_1_1_share_payload.html">::ov::SharePayload</a>&#160;</td><td class="memItemRight"><a class="el" href="#ada36b712b57b511137e3e9f7d29e026d">text_share_payload</a> (::rust::Vec&lt;::std::uint8_t &gt; text, ::rust::Str title, ::rust::Str shared_by)</td></tr>
 <tr class="memitem:abf18052385c01e7358e7725c34a6fd31" id="r_abf18052385c01e7358e7725c34a6fd31"><td class="memItemLeft"><a class="el" href="structov_1_1_totp_params.html">::ov::TotpParams</a>&#160;</td><td class="memItemRight"><a class="el" href="#abf18052385c01e7358e7725c34a6fd31">parse_totp_uri</a> (::rust::Vec&lt;::std::uint8_t &gt; uri)</td></tr>
 <tr class="memitem:a52c02c5f324b72859b7f3cd67da4b26f" id="r_a52c02c5f324b72859b7f3cd67da4b26f"><td class="memItemLeft"><a class="el" href="structov_1_1_totp_code.html">::ov::TotpCode</a>&#160;</td><td class="memItemRight"><a class="el" href="#a52c02c5f324b72859b7f3cd67da4b26f">totp_code</a> (<a class="el" href="structov_1_1_totp_params.html">::ov::TotpParams</a> params, ::std::int64_t now_ms)</td></tr>
+<tr class="memitem:a5545d13fc1dc07e50e6075c391b7dcb0" id="r_a5545d13fc1dc07e50e6075c391b7dcb0"><td class="memItemLeft"><a class="el" href="structov_1_1_share_link_parts.html">::ov::ShareLinkParts</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5545d13fc1dc07e50e6075c391b7dcb0">parse_share_link</a> (::rust::Str link)</td></tr>
 <tr class="memitem:a3344039a4a9baa9c6901dfa8d26dd4a4" id="r_a3344039a4a9baa9c6901dfa8d26dd4a4"><td class="memItemLeft"><a class="el" href="structov_1_1_optional_bytes.html">::ov::OptionalBytes</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3344039a4a9baa9c6901dfa8d26dd4a4">entry_totp_uri</a> (::rust::Vec&lt;<a class="el" href="structov_1_1_field_record.html">::ov::FieldRecord</a> &gt; fields, ::rust::Str label)</td></tr>
 <tr class="memitem:acf0900f173a059248acf5550190ecf6c" id="r_acf0900f173a059248acf5550190ecf6c"><td class="memItemLeft">::rust::Box&lt;<a class="el" href="structov_1_1_service_account.html">::ov::ServiceAccount</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#acf0900f173a059248acf5550190ecf6c">service_account_from_token</a> (<a class="el" href="structov_1_1_client.html">::ov::Client</a> const &amp;client, ::rust::Vec&lt;::std::uint8_t &gt; token, <a class="el" href="structov_1_1_cancel_token.html">::ov::CancelToken</a> const &amp;cancel)</td></tr>
 <tr class="memitem:a3963139f3be5034d19619d44fea1adbe" id="r_a3963139f3be5034d19619d44fea1adbe"><td class="memItemLeft">::rust::Box&lt;<a class="el" href="structov_1_1_self_hosted.html">::ov::SelfHosted</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3963139f3be5034d19619d44fea1adbe">self_hosted_connect</a> (<a class="el" href="structov_1_1_client.html">::ov::Client</a> const &amp;client, ::rust::Str server_url, ::rust::Vec&lt;::std::uint8_t &gt; device_token)</td></tr>
@@ -2185,6 +2188,23 @@ template&lt;class F&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">::std::int64_t</td>          <td class="paramname"><span class="paramname"><em>now_ms</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5545d13fc1dc07e50e6075c391b7dcb0" name="a5545d13fc1dc07e50e6075c391b7dcb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5545d13fc1dc07e50e6075c391b7dcb0">&#9670;&#160;</a></span>parse_share_link()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structov_1_1_share_link_parts.html">::ov::ShareLinkParts</a> ov::parse_share_link </td>
+          <td>(</td>
+          <td class="paramtype">::rust::Str</td>          <td class="paramname"><span class="paramname"><em>link</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

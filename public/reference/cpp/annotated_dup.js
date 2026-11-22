@@ -116,6 +116,7 @@ var annotated_dup =
       [ "ShareableField", "structov_1_1_shareable_field.html", "structov_1_1_shareable_field" ],
       [ "ShareField", "structov_1_1_share_field.html", "structov_1_1_share_field" ],
       [ "ShareInfo", "structov_1_1_share_info.html", "structov_1_1_share_info" ],
+      [ "ShareLinkParts", "structov_1_1_share_link_parts.html", "structov_1_1_share_link_parts" ],
       [ "ShareListing", "structov_1_1_share_listing.html", "structov_1_1_share_listing" ],
       [ "ShareOptions", "structov_1_1_share_options.html", "structov_1_1_share_options" ],
       [ "SharePayload", "structov_1_1_share_payload.html", "structov_1_1_share_payload" ],

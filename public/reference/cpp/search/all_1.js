@@ -1,7 +1,7 @@
 var searchData=
 [
   ['background_5fcolor_0',['background_color',['../structov_1_1_entry_record.html#a43338171580d29b69a0c27c93722b2e5',1,'ov::EntryRecord::background_color'],['../structov_1_1_entry_input.html#a36f3ef78e2f618e1b3a2c54e4b019b76',1,'ov::EntryInput::background_color']]],
-  ['base_1',['base',['../structov_1_1_cached_vault.html#a4b415a6519df1c571279de0c7881d6f2',1,'ov::CachedVault']]],
+  ['base_1',['base',['../structov_1_1_cached_vault.html#a4b415a6519df1c571279de0c7881d6f2',1,'ov::CachedVault::base'],['../structov_1_1_share_link_parts.html#a2c529a728c9546231bc0ed6a34f44ec7',1,'ov::ShareLinkParts::base']]],
   ['below_20the_20facade_2',['Below the facade',['../index.html#below-the-facade',1,'']]],
   ['billing_3',['Billing',['../structov_1_1_billing.html',1,'ov']]],
   ['billing_4',['billing',['../structov_1_1_plan.html#a77d95b734b848461fe3d0f714ec7f5c5',1,'ov::Plan']]],

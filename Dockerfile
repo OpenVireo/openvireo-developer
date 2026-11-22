@@ -11,6 +11,7 @@ RUN npm run build
 FROM nginx:1.27-bookworm
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
-# Strict-Transport-Security value for every response, set at run time; empty sends none
-ENV HSTS=""
+# Strict-Transport-Security value for every response. The default holds when the app sets no HSTS env var
+# (an app created in the dashboard rather than from .do/app.yaml); set it to "" to send none.
+ENV HSTS="max-age=300"
 EXPOSE 8080

@@ -67,7 +67,8 @@ export default defineConfig({
 					items: [
 						{ label: 'Overview', link: '/api/' },
 						{ label: 'Reference', link: '/api/reference/' },
-						{ label: 'openapi.yaml', link: '/api/openapi.yaml', attrs: { target: '_self' } },
+						// A full URL: Starlight would add a trailing slash to a path (trailingSlash: 'always')
+						{ label: 'openapi.yaml', link: 'https://developer.openvireo.com/api/openapi.yaml' },
 					],
 				},
 				{

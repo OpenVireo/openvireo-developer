@@ -214,3 +214,42 @@ site-search button[data-open-modal] {
 	border-color: var(--ov-border-strong);
 	background: var(--ov-surface-1);
 }
+
+/* Tabbed code groups (src/plugins/remark-code-tabs.mjs) */
+.sl-markdown-content .ov-code-tabs {
+	margin-top: 1.5rem;
+}
+.ov-code-tablist {
+	display: flex;
+	gap: 0.25rem;
+	overflow-x: auto;
+	border-bottom: 1px solid var(--ov-border);
+	margin-bottom: 0.75rem;
+	scrollbar-width: thin;
+}
+.ov-code-tablist [role='tab'] {
+	font: inherit;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--sl-color-gray-2);
+	background: none;
+	border: 0;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -1px;
+	padding: 0.5rem 0.875rem;
+	min-height: 2.5rem;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.ov-code-tablist [role='tab']:hover {
+	color: var(--sl-color-white);
+}
+.ov-code-tablist [role='tab'][aria-selected='true'] {
+	color: var(--sl-color-white);
+	border-bottom-color: var(--ov-accent-text);
+}
+.ov-code-tablist [role='tab']:focus-visible {
+	outline: 2px solid var(--ov-accent-text);
+	outline-offset: -2px;
+	border-radius: 0.375rem;
+}

@@ -30,6 +30,7 @@ const isHome = Astro.url.pathname === '/';
 </>}
 
 <script>
+	import '../scripts/code-tabs';
 	for (const button of document.querySelectorAll<HTMLButtonElement>('.ov-copy-md')) {
 		const label = button.querySelector('span')!;
 		button.addEventListener('click', async () => {

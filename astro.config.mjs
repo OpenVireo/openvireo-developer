@@ -1,12 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import remarkCodeTabs from './src/plugins/remark-code-tabs.mjs';
 
 // The product sections. Each one is a top-level sidebar group; the Sidebar override shows only the
 // group for the section you are in, and the Header override links to each section's landing page.
 export default defineConfig({
 	site: 'https://developer.openvireo.com',
 	trailingSlash: 'always',
+	markdown: { remarkPlugins: [remarkCodeTabs] },
 	integrations: [
 		starlight({
 			title: 'OpenVireo Developer',

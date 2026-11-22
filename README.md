@@ -19,6 +19,21 @@ here. Edit the docs there, not here.
 Written here: the home page (`src/pages/index.astro`), `/guides/` (`src/content/docs/guides/`, cards from
 `src/data/guides.ts`) and the theme (`src/styles/theme.css`, `src/components/`).
 
+### Code in several languages
+
+Consecutive fenced blocks marked `tab="Label"` in a source repo's docs become one tabbed group here (GitHub
+shows them as ordinary blocks one after another). The reader's language choice applies to every group and is
+remembered (`src/plugins/remark-code-tabs.mjs`, `src/scripts/code-tabs.ts`):
+
+````md
+```ts tab="TypeScript"
+...
+```
+```python tab="Python"
+...
+```
+````
+
 Every page is also served as Markdown at `<path>.md` (the "Copy as Markdown" button), and `/llms.txt` indexes them.
 
 ## Develop

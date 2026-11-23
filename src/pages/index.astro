@@ -2,8 +2,10 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { Code } from '@astrojs/starlight/components';
 
-// The current releases (openvireo-core and openvireo-sdk tags). Update with each release.
-const versions = { core: '1.0.0', sdk: '1.0.0' };
+import versions from '../../data/releases.json';
+
+// `versions` holds the current openvireo-core and openvireo-sdk releases. `npm run sync` writes them
+// from the newest release tag in each repo, so they move with the docs; don't edit them by hand.
 
 // Hero code window. Every sample and install command is from the synced docs: the first program on
 // /sdk/, /bindings/python/#install, /cli/ and /cli/github-action/. `label` is shown, `sync` is the
@@ -67,7 +69,7 @@ async def main(email: str, password: bytes, secret_key: bytes) -> None:
 		label: 'CLI',
 		sync: 'ov CLI',
 		lang: 'sh',
-		install: 'npm install -g @openvireo/cli',
+		install: `curl -fL https://github.com/OpenVireo/openvireo-core/releases/download/v${versions.core}/ov-${versions.core}-linux-x64.tar.gz | tar -xz`,
 		prompt: true,
 		installHref: '/cli/#install',
 		code: `# Sign in; the Secret Key is asked for the first time only

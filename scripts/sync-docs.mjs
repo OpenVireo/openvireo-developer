@@ -19,7 +19,7 @@
 // Generated directories are replaced wholesale; edit the docs in their own repositories.
 
 import { execFileSync } from 'node:child_process';
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, posix, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -431,5 +431,21 @@ for (const [name, { source, repo, git, ref, commit, dir, files }] of Object.entr
 
 mkdirSync(join(root, 'data'), { recursive: true });
 writeFileSync(join(root, 'data', 'redirects.json'), `${JSON.stringify(redirects, null, 2)}\n`);
+
+// The current releases, shown on the home page (version pill, Python install, GitHub Action ref): the
+// newest vX.Y.Z tag reachable from the synced commit of the SDK and the core. A source left out with
+// --only keeps the version it had.
+const releasesFile = join(root, 'data', 'releases.json');
+const releases = existsSync(releasesFile) ? JSON.parse(readFileSync(releasesFile, 'utf8')) : {};
+for (const name of ['sdk', 'core']) {
+    const checkout = checkouts[name];
+    if (!checkout) continue;
+    const tag = checkout.git('tag', '--list', 'v*', '--sort=-v:refname', '--merged', checkout.commit)
+        .split('\n').find((t) => /^v\d+\.\d+\.\d+$/.test(t));
+    if (!tag) fail(`${checkout.source.repo} has no vX.Y.Z tag at ${checkout.ref}; fetch its tags`);
+    releases[name] = tag.slice(1);
+}
+writeFileSync(releasesFile, `${JSON.stringify(releases, null, 2)}\n`);
+console.log(`  Releases: core ${releases.core ?? '?'}, SDK ${releases.sdk ?? '?'} (data/releases.json)`);
 
 console.log('\nDone. Review the changes with `git status` and preview them with `npm run dev`.');

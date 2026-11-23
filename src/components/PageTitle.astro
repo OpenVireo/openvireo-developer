@@ -2,8 +2,16 @@
 const PAGE_TITLE_ID = '_top'; // Starlight's id for the page title (the skip link and TOC point at it)
 import { sectionFor } from './sections';
 
-const { entry } = Astro.locals.starlightRoute;
+const { entry, sidebar } = Astro.locals.starlightRoute;
 const section = sectionFor(Astro.url.pathname);
+// The sidebar group inside the section that holds this page (e.g. SDK / Guides), for the breadcrumb
+type Entry = (typeof sidebar)[number];
+const hasCurrent = (e: Entry): boolean => (e.type === 'link' ? e.isCurrent : e.entries.some(hasCurrent));
+const sectionGroup = sidebar.find((e) => e.type === 'group' && e.label === section?.group);
+const subgroup =
+	sectionGroup?.type === 'group'
+		? sectionGroup.entries.find((e) => e.type === 'group' && hasCurrent(e))?.label
+		: undefined;
 const isLanding = section && Astro.url.pathname === section.href;
 // Every docs page is also served as Markdown at <path>.md (src/pages/[...slug].md.ts)
 const markdownUrl = `${Astro.url.pathname.replace(/\/$/, '')}.md`;
@@ -17,6 +25,7 @@ const isHome = Astro.url.pathname === '/';
 		section && (
 			<nav aria-label="Breadcrumb" class="ov-crumbs">
 				{isLanding ? <span>{section.label}</span> : <a href={section.href}>{section.label}</a>}
+				{subgroup && subgroup !== section.label && <><span aria-hidden="true">/</span><span>{subgroup}</span></>}
 			</nav>
 		)
 	}
@@ -57,11 +66,13 @@ const isHome = Astro.url.pathname === '/';
 		margin-top: 0.5rem;
 	}
 	.ov-crumbs {
+		display: flex;
+		gap: 0.5rem;
 		font-size: 0.8125rem;
-		color: var(--sl-color-gray-2);
+		color: var(--sl-color-gray-3);
 	}
 	.ov-crumbs a {
-		color: var(--sl-color-gray-2);
+		color: var(--sl-color-gray-3);
 		text-decoration: none;
 	}
 	.ov-crumbs a:hover {
@@ -87,15 +98,16 @@ const isHome = Astro.url.pathname === '/';
 		border-color: var(--ov-border-strong);
 	}
 	h1 {
-		margin-top: 0.75rem;
+		margin-top: 0.875rem;
+		font-family: var(--ov-font-display);
 		font-size: var(--sl-text-h1);
-		line-height: 1.1;
+		line-height: 1.08;
 		letter-spacing: -0.03em;
 		font-weight: 700;
 		color: var(--sl-color-white);
 	}
 	.ov-lead {
-		margin-top: 0.75rem;
+		margin-top: 1rem;
 		font-size: 1.125rem;
 		line-height: 1.65;
 		color: var(--sl-color-gray-2);

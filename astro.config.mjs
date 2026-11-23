@@ -20,6 +20,7 @@ export default defineConfig({
 			customCss: [
 				'@fontsource-variable/inter',
 				'@fontsource-variable/jetbrains-mono',
+				'@fontsource-variable/inter-tight',
 				'./src/styles/theme.css',
 			],
 			components: {

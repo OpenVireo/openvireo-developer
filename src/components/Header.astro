@@ -46,8 +46,9 @@ const shouldRenderSearch =
 		gap: 0.625rem;
 		text-decoration: none;
 		color: var(--sl-color-white);
-		font-weight: 600;
-		font-size: 0.9375rem;
+		font-family: var(--ov-font-display);
+		font-weight: 700;
+		font-size: 1.0625rem;
 		white-space: nowrap;
 	}
 	.ov-brand img {
@@ -55,15 +56,22 @@ const shouldRenderSearch =
 		height: 28px;
 	}
 	.ov-brand-tag {
-		color: var(--sl-color-gray-2);
+		color: var(--sl-color-gray-3);
 		font-weight: 500;
+	}
+	.ov-brand:focus-visible,
+	.ov-nav a:focus-visible {
+		outline: 2px solid var(--ov-accent-text);
+		outline-offset: 2px;
+		border-radius: 0.5rem;
 	}
 	.ov-nav {
 		gap: 0.25rem;
 		font-size: 0.875rem;
+		font-weight: 500;
 	}
 	.ov-nav a {
-		color: var(--sl-color-gray-2);
+		color: var(--sl-color-gray-1);
 		text-decoration: none;
 		padding: 0.5rem 0.75rem;
 		border-radius: 0.5rem;

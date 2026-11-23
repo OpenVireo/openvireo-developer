@@ -3,6 +3,7 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { Code } from '@astrojs/starlight/components';
 
 import versions from '../../data/releases.json';
+import { exampleLanguages, repoUrl } from '../data/examples';
 
 // `versions` holds the current openvireo-core and openvireo-sdk releases. `npm run sync` writes them
 // from the newest release tag in each repo, so they move with the docs; don't edit them by hand.
@@ -216,6 +217,13 @@ const guides = [
 			<span id="ov-langs-label">API reference for</span>
 			<ul>
 				{langs.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+			</ul>
+		</section>
+
+		<section class="ov-wrap ov-langs ov-langs-examples" aria-labelledby="ov-examples-label">
+			<a id="ov-examples-label" href="/guides/examples/">Runnable examples in</a>
+			<ul>
+				{exampleLanguages.map((l) => <li><a href={repoUrl(l)}>{l.label}</a></li>)}
 			</ul>
 		</section>
 
@@ -629,6 +637,21 @@ const guides = [
 	}
 	.ov-langs span {
 		margin-inline-end: 0.5rem;
+	}
+	.ov-langs-examples {
+		padding-top: 1rem;
+	}
+	.ov-langs #ov-examples-label {
+		margin-inline-end: 0.5rem;
+		font-family: inherit;
+		color: var(--sl-color-gray-3);
+		border: 0;
+		padding: 0;
+		text-decoration: none;
+	}
+	.ov-langs #ov-examples-label:hover {
+		color: var(--sl-color-white);
+		background: none;
 	}
 	.ov-langs ul {
 		display: flex;

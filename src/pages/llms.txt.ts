@@ -36,6 +36,12 @@ export const GET: APIRoute = async ({ site }) => {
 		for (const e of entries) lines.push(`- [${e.data.title}](${base}/${e.id}.md)${e.data.description ? `: ${e.data.description}` : ''}`);
 		lines.push('');
 	}
+	lines.push(
+		'## Examples',
+		'',
+		`- [Runnable examples](${base}/guides/examples.md): the code from every guide as runnable programs, one GitHub repo per language`,
+		'',
+	);
 	lines.push('## Optional', '', `- [OpenAPI description](${base}/api/openapi.yaml)`, `- [TypeScript API reference](${base}/sdk/api/)`, '');
 	return new Response(lines.join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

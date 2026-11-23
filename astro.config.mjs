@@ -49,7 +49,10 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Guides',
-					items: [{ label: 'All guides', link: '/guides/' }],
+					items: [
+						{ label: 'All guides', link: '/guides/' },
+						{ label: 'Runnable examples', link: '/guides/examples/' },
+					],
 				},
 				{
 					label: 'SDK',

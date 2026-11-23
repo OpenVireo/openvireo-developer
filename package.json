@@ -15,7 +15,8 @@
     "apidocs:jvm": "node scripts/apidocs/jvm.mjs",
     "apidocs:swift": "node scripts/apidocs/swift.mjs",
     "apidocs:python": "node scripts/apidocs/python.mjs",
-    "apidocs:cpp": "node scripts/apidocs/cpp.mjs"
+    "apidocs:cpp": "node scripts/apidocs/cpp.mjs",
+    "examples-page": "node scripts/examples-page.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.10",

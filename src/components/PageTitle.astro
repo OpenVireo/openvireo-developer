@@ -1,6 +1,7 @@
 ---
 const PAGE_TITLE_ID = '_top'; // Starlight's id for the page title (the skip link and TOC point at it)
 import { sectionFor } from './sections';
+import ExamplesStrip from './ExamplesStrip.astro';
 
 const { entry, sidebar } = Astro.locals.starlightRoute;
 const section = sectionFor(Astro.url.pathname);
@@ -36,6 +37,7 @@ const isHome = Astro.url.pathname === '/';
 </div>
 <h1 id={PAGE_TITLE_ID}>{entry.data.title}</h1>
 {entry.data.description && <p class="ov-lead">{entry.data.description}</p>}
+<ExamplesStrip />
 </>}
 
 <script>

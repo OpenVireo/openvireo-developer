@@ -1,0 +1,58 @@
+---
+// "Runnable examples" under the title of a guide (a link to each language's file) or a language page
+// (a link to the repo). The data is in src/data/examples.ts.
+import { exampleGuideFor, exampleLanguages, fileUrl, languagePages, repoUrl } from '../data/examples';
+
+const pathname = Astro.url.pathname;
+const guide = exampleGuideFor(pathname);
+const links = guide
+	? exampleLanguages.flatMap((l) => {
+			const file = l.file(guide.slug);
+			return file ? [{ label: l.label, href: fileUrl(l, file) }] : [];
+		})
+	: (languagePages[pathname] ?? []).flatMap((label) => {
+			const l = exampleLanguages.find((x) => x.label === label);
+			return l ? [{ label: l.label, href: repoUrl(l) }] : [];
+		});
+---
+
+{
+	links.length > 0 && (
+		<p class="ov-examples-strip not-content">
+			<a class="ov-examples-label" href="/guides/examples/">Runnable examples</a>
+			{links.map((l) => <a class="ov-examples-lang" href={l.href}>{l.label}</a>)}
+		</p>
+	)
+}
+
+<style>
+	.ov-examples-strip {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 1.25rem;
+		font-size: 0.8125rem;
+	}
+	.ov-examples-label {
+		color: var(--sl-color-gray-3);
+		text-decoration: none;
+		margin-inline-end: 0.25rem;
+	}
+	.ov-examples-label:hover {
+		color: var(--sl-color-white);
+	}
+	.ov-examples-lang {
+		font-family: var(--sl-font-mono);
+		color: var(--sl-color-gray-1);
+		text-decoration: none;
+		border: 1px solid var(--ov-border);
+		border-radius: 0.5rem;
+		padding: 0.25rem 0.625rem;
+	}
+	.ov-examples-lang:hover {
+		color: var(--sl-color-white);
+		border-color: var(--ov-border-strong);
+		background: var(--ov-surface-1);
+	}
+</style>

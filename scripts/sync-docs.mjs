@@ -94,6 +94,7 @@ const sources = {
         fallbackDir: 'bindings',
         pages: {
             'docs/bindings/README.md': { path: 'bindings/index', order: 0, old: 'overview', label: 'Overview', summary: 'Every language binding, what it is for, and how they differ.' },
+            'docs/bindings/rust.md': { path: 'bindings/rust', order: 5, summary: 'ov-core straight from Cargo: install, a Host, sign in, vaults, errors, cancellation.' },
             'docs/bindings/python.md': { path: 'bindings/python', order: 10, old: 'python', summary: 'The openvireo package: install, sign in, vaults, sync, errors.' },
             'docs/bindings/kotlin-java.md': { path: 'bindings/kotlin-java', order: 20, old: 'kotlin-java', summary: 'com.openvireo.core for the JVM and Android, from Kotlin or Java.' },
         },
@@ -145,7 +146,7 @@ function redirectMap() {
     const map = {};
     for (const [name, source] of Object.entries(sources)) {
         map[`/docs/${name}/`] = urlOf(source.pages[source.index ?? `${source.dir ?? 'docs'}/index.md`].path);
-        for (const page of Object.values(source.pages)) map[`/docs/${name}/${page.old}/`] = urlOf(page.path);
+        for (const page of Object.values(source.pages)) if (page.old) map[`/docs/${name}/${page.old}/`] = urlOf(page.path);
     }
     map['/docs/sdk/api/'] = '/sdk/api/';
     map['/docs/sync-server/openapi.yaml'] = '/api/openapi.yaml';

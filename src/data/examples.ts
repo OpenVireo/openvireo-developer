@@ -51,6 +51,13 @@ export const exampleLanguages: ExampleLanguage[] = [
 		file: (s) => `examples/${s}.ts`,
 	},
 	{
+		label: 'Rust',
+		repo: 'openvireo-examples-rust',
+		needs: 'Rust 1.98+',
+		run: 'cargo run -- first-program',
+		file: (s) => `src/${s.replaceAll('-', '_')}.rs`,
+	},
+	{
 		label: 'Python',
 		repo: 'openvireo-examples-python',
 		needs: 'Python 3.10+ and uv',
@@ -102,8 +109,9 @@ export const exampleGuideFor = (pathname: string) => exampleGuides.find((g) => g
 
 /** Pages about one language that link to that language's repo. */
 export const languagePages: Record<string, string[]> = {
+	'/bindings/rust/': ['Rust'],
 	'/bindings/python/': ['Python'],
 	'/bindings/kotlin-java/': ['Kotlin', 'Java'],
 	'/cli/': ['ov CLI'],
-	'/bindings/': ['Python', 'Kotlin', 'Java', 'Swift', 'C++'],
+	'/bindings/': ['Rust', 'Python', 'Kotlin', 'Java', 'Swift', 'C++'],
 };

@@ -35,6 +35,34 @@ const vault = await account.openVault(first.id);
 console.log(vault.read("ov://Personal/GitHub/username"));`,
 	},
 	{
+		id: 'rs',
+		label: 'Rust',
+		sync: 'Rust',
+		lang: 'rust',
+		install: `cargo add ov-core --git https://github.com/openvireo/openvireo-core --tag v${versions.core}`,
+		prompt: true,
+		installHref: '/bindings/rust/#install',
+		code: `use ov_core::api::{CancelToken, ClientConfig, DeviceInfo, LoginInput, OvClient, Platform};
+
+let client = OvClient::new(
+    ClientConfig {
+        device: DeviceInfo { id: None, name: "My script".into(), platform: Platform::Cli },
+        offline: false,
+        server: None,
+    },
+    host,   // your Host: HTTP, secure store, cache, clock, logs
+);
+let cancel = CancelToken::new();
+let account = client.connect("https://accounts.openvireo.com".into(), cancel.clone()).await?;
+account
+    .login(LoginInput { email, password, secret_key, totp: None, trust_device: true }, cancel.clone())
+    .await?;
+
+let vaults = account.vaults(cancel.clone()).await?;
+let vault = account.open_vault(vaults[0].id.clone(), cancel.clone()).await?;
+println!("{}", String::from_utf8_lossy(&vault.read_field("ov://Personal/GitHub/username".into())?));`,
+	},
+	{
 		id: 'py',
 		label: 'Python',
 		sync: 'Python',
@@ -255,9 +283,9 @@ const guides = [
 					</p>
 					<a class="ov-more" href="/sdk/concepts/#what-the-servers-see">Read the security model →</a>
 				</div>
-				<div class="ov-diagram" role="img" aria-label="TypeScript, Python, Swift and JVM apps all call openvireo-core, which does OPAQUE, Argon2 and KDBX locally; only ciphertext goes to the sync server, hosted or self-hosted.">
+				<div class="ov-diagram" role="img" aria-label="TypeScript, Rust, Python, Swift and JVM apps all call openvireo-core, which does OPAQUE, Argon2 and KDBX locally; only ciphertext goes to the sync server, hosted or self-hosted.">
 					<div class="ov-diagram-langs">
-						<span>TS</span><span>Python</span><span>Swift</span><span>JVM</span>
+						<span>TS</span><span>Rust</span><span>Python</span><span>Swift</span><span>JVM</span>
 					</div>
 					<div class="ov-diagram-core">openvireo-core (Rust) · OPAQUE · Argon2 · KDBX</div>
 					<div class="ov-diagram-arrow">▼ ciphertext only ▼</div>
@@ -799,7 +827,7 @@ const guides = [
 	}
 	.ov-diagram-langs {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(4.5rem, 1fr));
 		gap: 0.5rem;
 	}
 	.ov-diagram-langs span,

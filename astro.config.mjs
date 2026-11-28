@@ -62,7 +62,6 @@ export default defineConfig({
 						{ label: 'Concepts', link: '/sdk/concepts/' },
 						{ label: 'Guides', items: [{ autogenerate: { directory: 'sdk/guides' } }] },
 						{ label: 'Reference', items: [{ autogenerate: { directory: 'sdk/reference' } }] },
-						{ label: 'TypeScript API', link: '/sdk/api/', attrs: { target: '_self' } },
 					],
 				},
 				{

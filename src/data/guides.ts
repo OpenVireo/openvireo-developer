@@ -13,6 +13,7 @@ export const guides = [
 	{ tag: 'Python', title: 'Use the core from Python', summary: 'Install the openvireo package, sign in, open vaults and sync.', href: '/bindings/python/' },
 	{ tag: 'Rust', title: 'Use the core from Rust', summary: 'Depend on openvireo-core, write a Host, sign in and open vaults.', href: '/bindings/rust/' },
 	{ tag: 'Kotlin / Java', title: 'Use the core on the JVM and Android', summary: 'Add the Maven Central artifact, sign in and open vaults from Kotlin or Java.', href: '/bindings/kotlin-java/' },
+	{ tag: 'C++', title: 'Use the core from C++', summary: 'Link the libovcore CMake package from a release, write a Host and sign in.', href: '/bindings/cpp/' },
 	{ tag: 'Swift', title: 'Use the core from Swift', summary: 'Add the openvireo-swift package to an iOS or macOS app and call the core.', href: '/bindings/swift/' },
 	{ tag: 'Testing', title: 'Test against in-memory servers', summary: 'Run your integration tests without a network or real accounts.', href: '/sdk/guides/testing/' },
 ];

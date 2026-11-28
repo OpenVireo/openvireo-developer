@@ -103,9 +103,10 @@ const sources = {
         pages: {
             'docs/bindings/README.md': { path: 'bindings/index', order: 0, old: 'overview', label: 'Overview', summary: 'Every language binding, what it is for, and how they differ.' },
             'docs/bindings/rust.md': { path: 'bindings/rust', order: 5, summary: 'openvireo-core straight from Cargo: install, a Host, sign in, vaults, errors, cancellation.' },
-            'docs/bindings/python.md': { path: 'bindings/python', order: 10, old: 'python', summary: 'The openvireo package: install, sign in, vaults, sync, errors.' },
-            'docs/bindings/swift.md': { path: 'bindings/swift', order: 15, summary: 'OpenVireoRustCore for iOS and macOS from Swift Package Manager.' },
-            'docs/bindings/kotlin-java.md': { path: 'bindings/kotlin-java', order: 20, old: 'kotlin-java', summary: 'com.openvireo.core for the JVM and Android, from Kotlin or Java.' },
+            'docs/bindings/python.md': { path: 'bindings/python', order: 20, old: 'python', summary: 'The openvireo package: install, sign in, vaults, sync, errors.' },
+            'docs/bindings/swift.md': { path: 'bindings/swift', order: 10, summary: 'OpenVireoRustCore for iOS and macOS from Swift Package Manager.' },
+            'docs/bindings/cpp.md': { path: 'bindings/cpp', order: 15, summary: 'libovcore for Qt and native desktop code: the CMake package, a Host, sign in, errors.' },
+            'docs/bindings/kotlin-java.md': { path: 'bindings/kotlin-java', order: 25, old: 'kotlin-java', summary: 'com.openvireo.core for the JVM and Android, from Kotlin or Java.' },
         },
     },
 };

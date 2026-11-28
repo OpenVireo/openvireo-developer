@@ -46,7 +46,7 @@ export const exampleLanguages: ExampleLanguage[] = [
 	{
 		label: 'TypeScript',
 		repo: 'openvireo-examples-typescript',
-		needs: 'Node 22.18+, a GitHub token for GitHub Packages',
+		needs: 'Node 22.18+',
 		run: 'npm run example -- first-program',
 		file: (s) => `examples/${s}.ts`,
 	},

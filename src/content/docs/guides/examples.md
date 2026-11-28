@@ -17,7 +17,7 @@ Running an example does something safe and mostly read-only. The calls that chan
 
 | Language | Repo | You need | Run the first program |
 |---|---|---|---|
-| TypeScript | [openvireo-examples-typescript](https://github.com/openvireo/openvireo-examples-typescript) | Node 22.18+, a GitHub token for GitHub Packages | `npm run example -- first-program` |
+| TypeScript | [openvireo-examples-typescript](https://github.com/openvireo/openvireo-examples-typescript) | Node 22.18+ | `npm run example -- first-program` |
 | Rust | [openvireo-examples-rust](https://github.com/openvireo/openvireo-examples-rust) | Rust 1.98+ | `cargo run -- first-program` |
 | Python | [openvireo-examples-python](https://github.com/openvireo/openvireo-examples-python) | Python 3.10+ and uv | `uv run examples/first_program.py` |
 | Kotlin | [openvireo-examples-kotlin](https://github.com/openvireo/openvireo-examples-kotlin) | JDK 21 | `./gradlew run --args="first-program"` |

@@ -39,7 +39,7 @@ console.log(vault.read("ov://Personal/GitHub/username"));`,
 		label: 'Rust',
 		sync: 'Rust',
 		lang: 'rust',
-		install: `cargo add ov-core --git https://github.com/openvireo/openvireo-core --tag v${versions.core}`,
+		install: `cargo add openvireo-core --git https://github.com/openvireo/openvireo-core --tag v${versions.core}`,
 		prompt: true,
 		installHref: '/bindings/rust/#install',
 		code: `use ov_core::api::{CancelToken, ClientConfig, DeviceInfo, LoginInput, OvClient, Platform};
@@ -67,7 +67,7 @@ println!("{}", String::from_utf8_lossy(&vault.read_field("ov://Personal/GitHub/u
 		label: 'Python',
 		sync: 'Python',
 		lang: 'python',
-		install: `pip install "openvireo==${versions.core}" --find-links https://github.com/openvireo/openvireo-core/releases/expanded_assets/v${versions.core}`,
+		install: `pip install "openvireo==${versions.core}"`,
 		prompt: true,
 		installHref: '/bindings/python/#install',
 		code: `import openvireo as ov

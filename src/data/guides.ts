@@ -11,5 +11,8 @@ export const guides = [
 	{ tag: 'Apps', title: 'React to changes', summary: 'Subscribe to events from other devices and to access changes.', href: '/sdk/guides/events/' },
 	{ tag: 'Migration', title: 'Turn a .kdbx into a vault', summary: 'Move an existing KeePass database into an account vault.', href: '/sdk/guides/move-to-account/' },
 	{ tag: 'Python', title: 'Use the core from Python', summary: 'Install the openvireo package, sign in, open vaults and sync.', href: '/bindings/python/' },
+	{ tag: 'Rust', title: 'Use the core from Rust', summary: 'Depend on openvireo-core, write a Host, sign in and open vaults.', href: '/bindings/rust/' },
+	{ tag: 'Kotlin / Java', title: 'Use the core on the JVM and Android', summary: 'Add the Maven Central artifact, sign in and open vaults from Kotlin or Java.', href: '/bindings/kotlin-java/' },
+	{ tag: 'Swift', title: 'Use the core from Swift', summary: 'Add the openvireo-swift package to an iOS or macOS app and call the core.', href: '/bindings/swift/' },
 	{ tag: 'Testing', title: 'Test against in-memory servers', summary: 'Run your integration tests without a network or real accounts.', href: '/sdk/guides/testing/' },
 ];

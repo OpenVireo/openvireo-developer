@@ -2,13 +2,14 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import remarkCodeTabs from './src/plugins/remark-code-tabs.mjs';
+import remarkSince from './src/plugins/remark-since.mjs';
 
 // The product sections. Each one is a top-level sidebar group; the Sidebar override shows only the
 // group for the section you are in, and the Header override links to each section's landing page.
 export default defineConfig({
 	site: 'https://developer.openvireo.com',
 	trailingSlash: 'always',
-	markdown: { remarkPlugins: [remarkCodeTabs] },
+	markdown: { remarkPlugins: [remarkCodeTabs, remarkSince] },
 	integrations: [
 		starlight({
 			title: 'OpenVireo Developer',
@@ -100,6 +101,11 @@ export default defineConfig({
 						{ label: 'C++', link: '/reference/cpp/', attrs: { target: '_self' } },
 						{ label: 'HTTP API', link: '/api/reference/' },
 					],
+				},
+				{
+					// /changelog/ is written here; the pages are each repo's CHANGELOG.md (npm run sync)
+					label: 'Changelog',
+					items: [{ autogenerate: { directory: 'changelog' } }],
 				},
 			],
 		}),

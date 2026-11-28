@@ -2,15 +2,24 @@
 // Publish the developer docs, the Markdown in openvireo-sdk/docs, openvireo-sync-server/docs and
 // openvireo-core/docs/bindings, as Starlight pages. Ported from openvireo-site/scripts/sync-dev-docs.mjs.
 //
-//   npm run sync                                      # sync server + SDK at their latest release tag, core at develop
-//   npm run sync -- --ref develop                     # all three at a branch, tag, or commit
+//   npm run sync                                      # each repo at its latest release, plus later docs-only commits
+//   npm run sync -- --ref develop                     # all three at a branch, tag, or commit, as they are
 //   npm run sync -- --sync-ref v1.2.0 --sdk-ref v1.0.0 --core-ref develop
 //   npm run sync -- --only sdk --no-typedoc           # one source repo, without rebuilding the TypeDoc reference
 //
 // The checkouts default to ../openvireo-sync-server, ../openvireo-sdk and ../openvireo-core;
 // OPENVIREO_SYNC_SRC, OPENVIREO_SDK_SRC and OPENVIREO_CORE_SRC override them. Files are read from the ref
-// with git, so the working trees are left alone. The core publishes from develop unless --core-ref says
-// otherwise: its v* tags are the SDK's, inherited with its history, and predate the bindings docs.
+// with git, so the working trees are left alone.
+//
+// Without a ref, a repo publishes its newest vX.Y.Z tag, so the site describes what's released, not what's
+// on develop. Docs fixes made after the release still go out: each later commit on origin/develop
+// (--branch to change) that changes only docs (*.md, docs/**) is merged into the tagged files, file by
+// file, three ways. A file that a code commit also changed, or that doesn't merge cleanly, stays as it was
+// released, and the run lists it; it catches up at the next release. With --ref, files come from that
+// ref as they are.
+//
+// Fenced code blocks have X.Y.Z (and vX.Y.Z) replaced with the published release, so install commands
+// can be pasted as they are. Each repo's CHANGELOG.md becomes /changelog/<repo>/.
 //
 // Each source file goes to one page under src/content/docs/ (see `pages` below). The SDK repo feeds both
 // /sdk/ and /cli/; the sync server repo feeds /api/ (client developers) and /self-hosting/ (operators).
@@ -89,12 +98,11 @@ const sources = {
         product: 'OpenVireo core',
         dir: 'docs/bindings',
         index: 'docs/bindings/README.md',
-        defaultRef: 'develop',
         unpublished: [],
         fallbackDir: 'bindings',
         pages: {
             'docs/bindings/README.md': { path: 'bindings/index', order: 0, old: 'overview', label: 'Overview', summary: 'Every language binding, what it is for, and how they differ.' },
-            'docs/bindings/rust.md': { path: 'bindings/rust', order: 5, summary: 'ov-core straight from Cargo: install, a Host, sign in, vaults, errors, cancellation.' },
+            'docs/bindings/rust.md': { path: 'bindings/rust', order: 5, summary: 'openvireo-core straight from Cargo: install, a Host, sign in, vaults, errors, cancellation.' },
             'docs/bindings/python.md': { path: 'bindings/python', order: 10, old: 'python', summary: 'The openvireo package: install, sign in, vaults, sync, errors.' },
             'docs/bindings/swift.md': { path: 'bindings/swift', order: 15, summary: 'OpenVireoRustCore for iOS and macOS from Swift Package Manager.' },
             'docs/bindings/kotlin-java.md': { path: 'bindings/kotlin-java', order: 20, old: 'kotlin-java', summary: 'com.openvireo.core for the JVM and Android, from Kotlin or Java.' },
@@ -108,6 +116,7 @@ const args = process.argv.slice(2);
 const refs = {};
 let only = null;
 let buildTypedoc = true;
+let branch = 'origin/develop';
 for (let i = 0; i < args.length; i++) {
     const arg = args[i];
     if (arg === '--ref') refs['sync-server'] = refs.sdk = refs.core = args[++i];
@@ -115,9 +124,10 @@ for (let i = 0; i < args.length; i++) {
     else if (arg === '--sdk-ref') refs.sdk = args[++i];
     else if (arg === '--core-ref') refs.core = args[++i];
     else if (arg === '--only') only = args[++i];
+    else if (arg === '--branch') branch = args[++i];
     else if (arg === '--no-typedoc' || arg === '--no-api') buildTypedoc = false;
     else if (arg === '-h' || arg === '--help') {
-        console.log('Usage: npm run sync -- [--ref <ref>] [--sync-ref <ref>] [--sdk-ref <ref>] [--core-ref <ref>] [--only sync-server|sdk|core] [--no-typedoc]');
+        console.log('Usage: npm run sync -- [--ref <ref>] [--sync-ref <ref>] [--sdk-ref <ref>] [--core-ref <ref>] [--branch <branch>] [--only sync-server|sdk|core] [--no-typedoc]');
         process.exit(0);
     } else fail(`unknown argument ${arg}`);
 }
@@ -128,7 +138,12 @@ function fail(message) {
     process.exit(1);
 }
 
-const gitIn = (repo) => (...gitArgs) => execFileSync('git', ['-C', repo, ...gitArgs], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).trim();
+// git in one repo; its output trimmed unless the last argument is { trim: false }. Errors throw, quietly.
+const gitIn = (repo) => (...gitArgs) => {
+    const options = typeof gitArgs.at(-1) === 'object' ? gitArgs.pop() : {};
+    const out = execFileSync('git', ['-C', repo, ...gitArgs], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
+    return options.trim === false ? out : out.trim();
+};
 
 // URLs -----------------------------------------------------------------------------------------
 
@@ -183,6 +198,7 @@ function convert(markdown, file, ctx) {
         const open = /^(\s*)(`{3,}|~{3,})(.*)$/.exec(line);
         if (fence) {
             if (open && open[2].startsWith(fence) && open[3].trim() === '') fence = null;
+            else if (ctx.version) line = line.replace(/\bvX\.Y\.Z\b/g, `v${ctx.version}`).replace(/\bX\.Y\.Z\b/g, ctx.version);
             out.push(line);
             continue;
         }
@@ -206,7 +222,7 @@ function convert(markdown, file, ctx) {
         line = line.replace(/<!--.*?-->/g, '');
         out.push(rewriteLinks(line, file, ctx));
     }
-    return { title, body: out.join('\n').replace(/^\n+/, '') };
+    return { title, body: out.join('\n').replace(/^\n+/, '').replace(/\n+$/, '') };
 }
 
 function rewriteLinks(line, file, ctx) {
@@ -331,17 +347,36 @@ function apiReference(spec) {
 
 // Build ----------------------------------------------------------------------------------------
 
+const changelogNames = { core: 'Core', sdk: 'SDK', 'sync-server': 'Sync server' };
+const isDocsPath = (file) => file.endsWith('.md') || file.startsWith('docs/');
+const releaseTagIn = (git, commit) =>
+    git('tag', '--list', 'v*', '--sort=-v:refname', ...(commit ? ['--merged', commit] : [])).split('\n').find((t) => /^v\d+\.\d+\.\d+$/.test(t));
+
+/** git merge-file: ours with the change from base to theirs, or null if they conflict. */
+function mergeThreeWay(ours, base, theirs) {
+    const work = mkdtempSync(join(tmpdir(), 'openvireo-merge-'));
+    try {
+        const [o, b, t] = ['ours', 'base', 'theirs'].map((n) => join(work, n));
+        writeFileSync(o, ours);
+        writeFileSync(b, base);
+        writeFileSync(t, theirs);
+        return execFileSync('git', ['merge-file', '-p', o, b, t], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    } catch {
+        return null; // exit status > 0: conflicts
+    } finally {
+        rmSync(work, { recursive: true, force: true });
+    }
+}
+
 const checkouts = {};
 for (const [name, source] of Object.entries(sources)) {
     if (only && name !== only) continue;
     const repo = resolve(process.env[source.env] || join(root, '..', source.repo));
     if (!existsSync(join(repo, '.git'))) fail(`${repo} is not a ${source.repo} checkout. Pass its path in ${source.env}.`);
     const git = gitIn(repo);
-    let ref = refs[name] ?? source.defaultRef;
-    if (!ref) {
-        ref = git('tag', '--list', 'v*', '--sort=-v:refname').split('\n')[0];
-        if (!ref) fail(`${source.repo} has no release tags; pass --ref develop`);
-    }
+    const fromRelease = !refs[name];
+    let ref = refs[name] ?? releaseTagIn(git);
+    if (!ref) fail(`${source.repo} has no vX.Y.Z release tags; fetch its tags or pass --ref develop`);
     let commit;
     try {
         commit = git('rev-parse', '--short', `${ref}^{commit}`);
@@ -349,14 +384,68 @@ for (const [name, source] of Object.entries(sources)) {
         fail(`unknown ref "${ref}" in ${repo}`);
     }
     ref = ref.replace(/^origin\//, ''); // origin/develop is develop on GitHub
+
+    // The files as released, then the later docs-only commits merged in (see the header)
+    const show = (rev, file) => {
+        try {
+            return git('show', `${rev}:${file}`, { trim: false });
+        } catch {
+            return null;
+        }
+    };
+    const overlay = new Map(); // file -> content, or null when a docs commit deleted it
+    const read = (file) => (overlay.has(file) ? overlay.get(file) : show(commit, file));
+    const held = new Set();
+    let picked = 0;
+    let tip = null;
+    if (fromRelease) {
+        let onBranch = false;
+        try {
+            git('merge-base', '--is-ancestor', commit, branch);
+            onBranch = true;
+        } catch {
+            console.warn(`  warning: ${source.repo}: ${ref} isn't on ${branch} (fetch it?); publishing the release as tagged`);
+        }
+        for (const c of onBranch ? git('rev-list', '--first-parent', '--reverse', `${commit}..${branch}`).split('\n').filter(Boolean) : []) {
+            const changes = git('diff', '--name-status', '--no-renames', `${c}^1`, c).split('\n').filter(Boolean).map((l) => l.split('\t'));
+            if (!changes.every(([, f]) => isDocsPath(f))) {
+                for (const [, f] of changes) if (isDocsPath(f) && read(f) !== show(c, f)) held.add(f);
+                continue;
+            }
+            picked++;
+            for (const [status, f] of changes) {
+                if (status === 'D') {
+                    overlay.set(f, null);
+                    continue;
+                }
+                const ours = read(f);
+                const base = show(`${c}^1`, f);
+                const theirs = show(c, f);
+                const merged = ours === null ? (base === null ? theirs : null) : base === null ? (ours === theirs ? ours : null) : mergeThreeWay(ours, base, theirs);
+                if (merged === null) held.add(f);
+                else {
+                    overlay.set(f, merged);
+                    held.delete(f);
+                }
+            }
+        }
+        tip = git('rev-parse', '--short', branch);
+        // A held file the docs commits brought level with the branch anyway isn't held
+        for (const f of held) if (read(f) === show(branch, f)) held.delete(f);
+    }
+
     const dir = source.dir ?? 'docs';
     const index = source.index ?? `${dir}/index.md`;
-    const files = git('ls-tree', '-r', '--name-only', commit, '--', dir).split('\n').filter((f) => f.endsWith('.md'));
+    const listed = git('ls-tree', '-r', '--name-only', commit, '--', dir).split('\n');
+    const files = [...new Set([...listed, ...overlay.keys()])]
+        .filter((f) => f.startsWith(`${dir}/`) && f.endsWith('.md') && read(f) !== null && !source.unpublished.includes(f))
+        .sort();
     if (!files.includes(index)) fail(`${source.repo} at ${ref} has no ${index}; pass --ref develop`);
-    checkouts[name] = { source, repo, git, ref, commit, dir, files: files.filter((f) => !source.unpublished.includes(f)) };
+    const version = releaseTagIn(git, commit)?.slice(1) ?? null;
+    checkouts[name] = { source, repo, git, ref, commit, dir, files, read, version, picked, tip, held: [...held].sort() };
 }
 
-for (const [name, { source, repo, git, ref, commit, dir, files }] of Object.entries(checkouts)) {
+for (const [name, { source, repo, git, ref, commit, dir, files, read, version, picked, tip, held }] of Object.entries(checkouts)) {
     for (const owned of ownedDirs[name]) {
         rmSync(join(contentRoot, owned), { recursive: true, force: true });
         mkdirSync(join(contentRoot, owned), { recursive: true });
@@ -368,8 +457,9 @@ for (const [name, { source, repo, git, ref, commit, dir, files }] of Object.entr
             return false;
         }
     };
-    const ctx = { repo: source.repo, ref, isDirectory };
-    const generated = `<!-- Generated by scripts/sync-docs.mjs from ${source.repo} ${ref}@${commit}; do not edit by hand. -->`;
+    const ctx = { repo: source.repo, ref, isDirectory, version };
+    const origin = `${source.repo} ${ref}@${commit}${picked ? ` + ${picked} docs commit${picked > 1 ? 's' : ''} to ${tip}` : ''}`;
+    const generated = `<!-- Generated by scripts/sync-docs.mjs from ${origin}; do not edit by hand. -->`;
     let count = 0;
 
     const write = (key, title, body, editFile) => {
@@ -394,18 +484,36 @@ for (const [name, { source, repo, git, ref, commit, dir, files }] of Object.entr
     };
 
     for (const file of files) {
-        const { title, body } = convert(git('show', `${commit}:${file}`), file, ctx);
+        const { title, body } = convert(read(file), file, ctx);
         write(file, title ?? posix.basename(file, '.md'), body, file);
     }
 
     if (name === 'sync-server') {
-        const yamlText = git('show', `${commit}:docs/openapi.yaml`);
+        const yamlText = read('docs/openapi.yaml');
         const { title, body } = convert(apiReference(YAML.parse(yamlText)), 'docs/api-reference.md', ctx);
         write('api-reference', title, body, 'docs/openapi.yaml');
         mkdirSync(join(root, 'public', 'api'), { recursive: true });
         writeFileSync(join(root, 'public', 'api', 'openapi.yaml'), yamlText.endsWith('\n') ? yamlText : `${yamlText}\n`);
     }
-    console.log(`  ${source.product}: ${count} pages from ${source.repo} ${ref}@${commit}`);
+    // The changelog, without its Unreleased section
+    const changelog = read('CHANGELOG.md');
+    if (changelog !== null) {
+        const released = changelog.replace(/^## \[?Unreleased\]?[^\n]*\n[\s\S]*?(?=^## )/im, '');
+        const { body } = convert(released, 'CHANGELOG.md', ctx);
+        const out = join(contentRoot, 'changelog', `${name}.md`);
+        mkdirSync(dirname(out), { recursive: true });
+        const fields = {
+            title: `${changelogNames[name]} changelog`,
+            slug: `changelog/${name}`,
+            description: `What changed in each ${source.product} release.`,
+            editUrl: `https://github.com/openvireo/${source.repo}/edit/develop/CHANGELOG.md`,
+            sidebar: { order: { core: 10, sdk: 20, 'sync-server': 30 }[name], label: changelogNames[name] },
+        };
+        writeFileSync(out, `${frontMatter(fields)}\n${generated}\n\n${body}\n`);
+    }
+    console.log(`  ${source.product}: ${count} pages from ${origin}${changelog !== null ? ', and its changelog' : ''}`);
+    const heldDocs = held.filter((f) => files.includes(f) || f === 'CHANGELOG.md');
+    if (heldDocs.length) console.log(`    held at ${ref} (changed by unreleased code, or a docs fix that doesn't merge): ${heldDocs.join(', ')}`);
 
     if (source.typedoc && buildTypedoc) {
         const work = mkdtempSync(join(tmpdir(), 'openvireo-sdk-'));
@@ -434,20 +542,16 @@ for (const [name, { source, repo, git, ref, commit, dir, files }] of Object.entr
 mkdirSync(join(root, 'data'), { recursive: true });
 writeFileSync(join(root, 'data', 'redirects.json'), `${JSON.stringify(redirects, null, 2)}\n`);
 
-// The current releases, shown on the home page (version pill, Python install, GitHub Action ref): the
-// newest vX.Y.Z tag reachable from the synced commit of the SDK and the core. A source left out with
-// --only keeps the version it had.
+// The current releases, shown in the header and on the home page (version pill, installs, GitHub Action
+// ref): the newest vX.Y.Z tag reachable from each synced commit. A source left out with --only keeps the
+// version it had.
 const releasesFile = join(root, 'data', 'releases.json');
 const releases = existsSync(releasesFile) ? JSON.parse(readFileSync(releasesFile, 'utf8')) : {};
-for (const name of ['sdk', 'core']) {
-    const checkout = checkouts[name];
-    if (!checkout) continue;
-    const tag = checkout.git('tag', '--list', 'v*', '--sort=-v:refname', '--merged', checkout.commit)
-        .split('\n').find((t) => /^v\d+\.\d+\.\d+$/.test(t));
-    if (!tag) fail(`${checkout.source.repo} has no vX.Y.Z tag at ${checkout.ref}; fetch its tags`);
-    releases[name] = tag.slice(1);
+for (const [name, checkout] of Object.entries(checkouts)) {
+    if (!checkout.version) fail(`${checkout.source.repo} has no vX.Y.Z tag at ${checkout.ref}; fetch its tags`);
+    releases[name] = checkout.version;
 }
 writeFileSync(releasesFile, `${JSON.stringify(releases, null, 2)}\n`);
-console.log(`  Releases: core ${releases.core ?? '?'}, SDK ${releases.sdk ?? '?'} (data/releases.json)`);
+console.log(`  Releases: core ${releases.core ?? '?'}, SDK ${releases.sdk ?? '?'}, sync server ${releases['sync-server'] ?? '?'} (data/releases.json)`);
 
 console.log('\nDone. Review the changes with `git status` and preview them with `npm run dev`.');

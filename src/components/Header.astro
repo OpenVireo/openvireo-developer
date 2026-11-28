@@ -5,6 +5,7 @@ import SocialIcons from 'virtual:starlight/components/SocialIcons';
 import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 import { logos } from 'virtual:starlight/user-images';
 import { sections, sectionFor } from './sections';
+import releases from '../../data/releases.json';
 
 const current = sectionFor(Astro.url.pathname);
 const shouldRenderSearch =
@@ -19,13 +20,24 @@ const shouldRenderSearch =
 	</a>
 	<nav class="ov-nav sl-hidden lg:sl-flex" aria-label="Sections">
 		{
-			sections.map((s) => (
+			sections.filter((s) => !('inHeader' in s) || s.inHeader).map((s) => (
 				<a href={s.href} aria-current={current?.href === s.href ? 'page' : undefined}>
 					{s.label}
 				</a>
 			))
 		}
 	</nav>
+	<a
+		href="/changelog/"
+		class="ov-version sl-hidden md:sl-flex print:hidden"
+		aria-current={current?.href === '/changelog/' ? 'page' : undefined}
+		title="The docs describe these releases. Open the changelog."
+	>
+		<span class="ov-version-dot" aria-hidden="true"></span>
+		<span>core {releases.core}</span>
+		<span class="ov-version-sep" aria-hidden="true">·</span>
+		<span>SDK {releases.sdk}</span>
+	</a>
 	<div class="ov-search print:hidden">{shouldRenderSearch && <Search />}</div>
 	<div class="sl-hidden md:sl-flex print:hidden ov-right">
 		<SocialIcons />
@@ -83,6 +95,36 @@ const shouldRenderSearch =
 	.ov-nav a[aria-current='page'] {
 		color: var(--sl-color-white);
 		background: var(--ov-surface-2);
+	}
+	.ov-version {
+		align-items: center;
+		gap: 0.375rem;
+		padding: 0.25rem 0.625rem;
+		border: 1px solid var(--ov-border);
+		border-radius: 999px;
+		color: var(--sl-color-gray-2);
+		font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+		font-size: 0.75rem;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.ov-version:hover,
+	.ov-version[aria-current='page'] {
+		color: var(--sl-color-white);
+		border-color: var(--sl-color-gray-4);
+	}
+	.ov-version:focus-visible {
+		outline: 2px solid var(--ov-accent-text);
+		outline-offset: 2px;
+	}
+	.ov-version-dot {
+		width: 0.4375rem;
+		height: 0.4375rem;
+		border-radius: 50%;
+		background: var(--ov-accent-text);
+	}
+	.ov-version-sep {
+		color: var(--sl-color-gray-4);
 	}
 	.ov-search {
 		flex: 1 1 auto;

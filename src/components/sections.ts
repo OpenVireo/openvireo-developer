@@ -1,4 +1,7 @@
-/** The product sections, in header order. `group` is the sidebar group label in astro.config.mjs. */
+/**
+ * The product sections, in header order. `group` is the sidebar group label in astro.config.mjs. `inHeader:
+ * false` keeps a section out of the header nav (the version pill links the changelog); the mobile menu lists all.
+ */
 export const sections = [
 	{ label: 'Guides', href: '/guides/', group: 'Guides' },
 	{ label: 'SDK', href: '/sdk/', group: 'SDK' },
@@ -7,6 +10,7 @@ export const sections = [
 	{ label: 'Self-hosting', href: '/self-hosting/', group: 'Self-hosting' },
 	{ label: 'Bindings', href: '/bindings/', group: 'Bindings' },
 	{ label: 'Reference', href: '/reference/', group: 'Reference' },
+	{ label: 'Changelog', href: '/changelog/', group: 'Changelog', inHeader: false },
 ] as const;
 
 export type Section = (typeof sections)[number];

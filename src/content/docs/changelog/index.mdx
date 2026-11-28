@@ -1,0 +1,44 @@
+---
+title: Changelog
+description: What changed in each release, which releases these docs describe, and how versions work.
+tableOfContents: false
+editUrl: false
+prev: false
+sidebar:
+  label: Overview
+  order: 0
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import releases from '../../../../data/releases.json';
+
+These docs describe the current releases: **core {releases.core}**, **SDK {releases.sdk}** and **sync
+server {releases['sync-server']}**. Install commands and examples use those versions.
+
+<CardGrid>
+	<LinkCard title={`Core ${releases.core}`} description="The Rust core, the ov CLI and the Rust, Swift, C++, Python and Kotlin/Java bindings." href="/changelog/core/" />
+	<LinkCard title={`SDK ${releases.sdk}`} description="@openvireo/sdk and the GitHub Action." href="/changelog/sdk/" />
+	<LinkCard title={`Sync server ${releases['sync-server']}`} description="The self-hosted sync server and its HTTP API." href="/changelog/sync-server/" />
+</CardGrid>
+
+## Versions
+
+The core and the SDK follow [Semantic Versioning](https://semver.org). A minor release (1.2) adds API, a
+patch release (1.2.1) fixes or repackages, and only a major release (2.0) removes or changes API. So these
+docs work for any 1.x release you're on, as long as you skip what arrived after it: a page marks that
+with a badge, like <span class="ov-since ov-since-added">Added in 1.1</span>.
+
+Every binding has the core's version. The SDK has its own version, and each SDK release says which core it
+is built on. The sync server is still 0.x, so a minor release can change its API; its changelog says when
+one does.
+
+## Older docs
+
+Each page is built from the docs in its repository at the release tag, and links to the source there. For
+the docs of an older release, open the repository at that tag:
+
+- [openvireo-core](https://github.com/openvireo/openvireo-core/tags): `docs/bindings/`
+- [openvireo-sdk](https://github.com/openvireo/openvireo-sdk/tags): `docs/`
+- [openvireo-sync-server](https://github.com/openvireo/openvireo-sync-server/tags): `docs/`
+
+When 2.0 ships, the 1.x docs will stay on this site under `/v1/`.

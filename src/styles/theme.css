@@ -354,3 +354,27 @@ site-search button[data-open-modal] > kbd {
 .ov-code-tabs [role='tabpanel'] .expressive-code .frame.is-terminal:not(.has-title) .header {
 	display: none;
 }
+
+/* Version notes from the source docs, "(added in SDK 1.1)" (src/plugins/remark-since.mjs) */
+.ov-since {
+	display: inline-block;
+	vertical-align: middle;
+	margin-inline-start: 0.25rem;
+	padding: 0.0625rem 0.5rem;
+	border: 1px solid var(--ov-border-strong);
+	border-radius: 999px;
+	color: var(--ov-accent-text);
+	font-family: 'Inter Variable', system-ui, sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	line-height: 1.6;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+}
+h1 .ov-since, h2 .ov-since, h3 .ov-since, h4 .ov-since {
+	font-size: 0.75rem;
+	transform: translateY(-0.1em);
+}
+.ov-since-deprecated {
+	color: var(--sl-color-orange-high, #e0a050);
+}
